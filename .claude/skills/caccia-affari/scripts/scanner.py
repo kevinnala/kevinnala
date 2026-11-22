@@ -46,6 +46,14 @@ def costruisci_richieste(cfg, massimo=None):
             ric.append({"url": url, "zona": z["nome"], "query": q})
     if massimo:
         ric = ric[: massimo * len(cfg["zone"])]
+    # ricerche per manifattura/marchio: solo nelle zone con "marchi": true (di norma tutta Italia)
+    marchi = cfg.get("ricerche_marchi", [])
+    if massimo:
+        marchi = marchi[:massimo]
+    for q in marchi:
+        for z in cfg["zone"]:
+            if z.get("marchi"):
+                ric.append({"url": z["url"].format(q=urllib.parse.quote_plus(q)), "zona": z["nome"], "query": q})
     return ric
 
 
@@ -181,7 +189,7 @@ def main(argv):
     nome = os.path.join(OUT, "report-" + dt.datetime.now().strftime("%Y-%m-%d-%H%M") + ".md")
     with open(nome, "w", encoding="utf-8") as fh:
         fh.write(f"# Scanner Subito — {adesso}\n\n")
-        fh.write(f"Zone: {', '.join(z['nome'] for z in cfg['zone'])} · ricerche: {len(richieste) // len(cfg['zone'])} · "
+        fh.write(f"Zone: {', '.join(z['nome'] for z in cfg['zone'])} · pagine: {len(richieste)} · "
                  f"annunci letti: {len(annunci)} · scartati perché solo ritiro e lontani: {scartati_distanza} · nuovi: {nuovi} · da guardare (punti ≥ {soglia}): {len(da_guardare)}\n\n")
         fh.write("Il punteggio ordina cosa guardare prima; non è una stima di valore.\n\n")
         fh.write("| # | Punti | Prezzo | Titolo | Luogo | Categoria | Perché |\n|---|---|---|---|---|---|---|\n")

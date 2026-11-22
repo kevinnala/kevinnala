@@ -1443,7 +1443,7 @@
     "categorie/ceramiche-vetri.md#Marchi",
     "categorie/ceramiche-vetri.md#Condizione",
     "dove-rivendere.md#Ceramiche",
-    "categorie/epoche-e-oggetti-campani.md#Ceramica di Vietri"
+    "categorie/epoche-e-stili.md#Ceramica di Vietri"
    ],
    "manuali": [
     "ceramica-",
@@ -1623,7 +1623,7 @@
    "leggi": [
     "categorie/altre-categorie.md#Arredi antichi",
     "canali-specializzati/arte-arredi-lusso-vini-auto.md#Mobili",
-    "categorie/epoche-e-oggetti-campani.md#Guida rapida alle epoche"
+    "categorie/epoche-e-stili.md#Guida rapida alle epoche"
    ],
    "manuali": [
     "mobili-",
@@ -2066,7 +2066,7 @@
     "natività antica"
    ],
    "leggi": [
-    "categorie/epoche-e-oggetti-campani.md#Presepe napoletano"
+    "categorie/epoche-e-stili.md#Presepe napoletano"
    ],
    "manuali": [
     "oggetti-de-mauri"
@@ -2107,7 +2107,7 @@
     "torre del greco"
    ],
    "leggi": [
-    "categorie/epoche-e-oggetti-campani.md#Corallo e cammei",
+    "categorie/epoche-e-stili.md#Corallo e cammei",
     "categorie/altre-categorie.md#Gioielli"
    ],
    "manuali": [
@@ -2154,7 +2154,7 @@
     "arte sacra"
    ],
    "leggi": [
-    "categorie/epoche-e-oggetti-campani.md#Arte sacra",
+    "categorie/epoche-e-stili.md#Arte sacra",
     "legale-fiscale.md#Da non comprare"
    ],
    "manuali": [
@@ -2202,7 +2202,7 @@
     "foto pompei"
    ],
    "leggi": [
-    "categorie/epoche-e-oggetti-campani.md#Fotografie"
+    "categorie/epoche-e-stili.md#Fotografie"
    ],
    "manuali": [],
    "dati": "artisti",
@@ -2243,7 +2243,7 @@
     "borsetta maglia argento"
    ],
    "leggi": [
-    "categorie/epoche-e-oggetti-campani.md#Piccoli oggetti",
+    "categorie/epoche-e-stili.md#Piccoli oggetti",
     "categorie/metalli-bronzi-argenti.md#Argenti"
    ],
    "manuali": [
@@ -2304,7 +2304,9 @@
     "borbonico"
    ],
    "leggi": [
-    "categorie/epoche-e-oggetti-campani.md#Guida rapida alle epoche",
+    "categorie/epoche-e-stili.md#Il criterio",
+    "categorie/epoche-e-stili.md#Manifatture",
+    "categorie/epoche-e-stili.md#Guida rapida alle epoche",
     "metodo-perizia.md#Indizi di epoca"
    ],
    "manuali": [

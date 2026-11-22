@@ -1,9 +1,48 @@
-# Epoche e oggetti tipici della Campania e del basso Lazio
+# Epoche, stili e manifatture che hanno valore
 
-Guida per riconoscere l'epoca di un oggetto dallo stile e dalla costruzione, e per le
-categorie più frequenti negli sgomberi di Napoli, Caserta, Salerno, Avellino, Benevento,
-Latina e Frosinone. Per approfondire usa i manuali: Melani (`stili-melani-*`), De Mauri
-*L'amatore di oggetti d'arte e di curiosità* (`oggetti-de-mauri-*`), Meyer (`stili-meyer-*`).
+Guida generale, valida per oggetti di **qualunque provenienza** (italiana o internazionale)
+e di qualunque epoca. Il criterio è uno solo: **l'oggetto ha un valore di rivendita?** La
+provenienza geografica dell'oggetto non conta; la zona conta solo per il ritiro a mano
+(vedi lo scanner in `SKILL.md`).
+
+Per approfondire usa i manuali: Melani (`stili-melani-*`), De Mauri *L'amatore di oggetti
+d'arte e di curiosità* (`oggetti-de-mauri-*`), Meyer (`stili-meyer-*`).
+
+## Il criterio: valore di rivendita
+
+Un oggetto merita attenzione se tutte e tre queste cose sono vere:
+
+1. **C'è un mercato**: si trovano vendite concluse di oggetti uguali o simili (aste, eBay
+   venduti, marketplace di settore). Niente vendite concluse = niente valore dimostrabile.
+2. **È riconoscibile**: manifattura, marchio, autore, modello o tipologia identificabili
+   (o un'epoca dimostrabile per oggetti senza firma ma di qualità).
+3. **Il margine regge**: prezzo di rivendita realistico − commissioni − spedizione −
+   eventuali perizie o restauri, contro il prezzo d'acquisto (`scripts/margine.py`).
+
+Un oggetto bello ma senza nome, senza epoca dimostrabile e senza mercato vale quanto il
+suo uso decorativo: di solito poco.
+
+## Manifatture e marchi che fanno prezzo (Italia e mondo)
+
+Un nome nell'annuncio non è una prova (i marchi famosi sono i più falsificati), ma è il
+primo segnale da verificare. Esempi per settore:
+
+| Settore | Italia | Resto del mondo |
+|---|---|---|
+| Porcellane e ceramiche | Ginori / Richard-Ginori (e Gio Ponti), Real Fabbrica di Capodimonte, Lenci, Fornasetti, Bitossi, Vietri periodo tedesco | Meissen, Sèvres, KPM Berlino, Nymphenburg, Herend, Royal Copenhagen, Rosenthal, Wedgwood, Royal Worcester, Moorcroft, Limoges (Haviland) |
+| Vetro | Venini, Barovier & Toso, Seguso, Salviati, AVEM, Cenedese | Gallé, Daum, Lalique, Loetz, Moser, Baccarat, Orrefors, Kosta, Iittala |
+| Argenti e metalli | Buccellati, argentieri antichi con punzoni di città | Christofle (spesso argentato), Puiforcat, Odiot, Georg Jensen, Tiffany, Fabergé, Gorham; bronzi Barbedienne, Susse, bronzi viennesi Bergman |
+| Orologi | Panerai (vintage) | Patek Philippe, Vacheron Constantin, Audemars Piguet, Rolex, Omega, Longines, Jaeger-LeCoultre, Universal Genève, Heuer, Zenith, Cartier |
+| Gioielli e moda | Bulgari, Buccellati, Gucci e Prada vintage | Cartier, Van Cleef & Arpels, Tiffany, Hermès, Chanel, Louis Vuitton |
+| Penne | Aurora, Omas, Montegrappa | Montblanc, Parker, Waterman, Pelikan |
+| Fotografia | — | Leica, Hasselblad, Rolleiflex, Zeiss, Nikon F |
+| Giocattoli | Ingap, Lenci, Rivarossi, Mercury, Politoys | Märklin, Schuco, Steiff, Lehmann, Dinky, Corgi, Kenner, LEGO |
+| Design | Cassina, Arteluce, FontanaArte, Flos, Artemide, Kartell, Olivetti, Brionvega, Gio Ponti, Sottsass | Thonet, Knoll, Vitra / Herman Miller (Eames), Fritz Hansen, Louis Poulsen, Braun |
+| Strumenti musicali e hi-fi | liuteria italiana, Eko, Wandrè | Fender, Gibson, Martin, Selmer, Steinway; McIntosh, Marantz, Thorens, Revox, Bang & Olufsen |
+| Arte orientale | — | porcellane cinesi con marchi di regno, Satsuma e Imari giapponesi, netsuke, cloisonné, bronzi e giade |
+
+Per ogni settore la scheda della categoria (`categoria.py`) dice come verificare
+l'autenticità e dove rivendere.
 
 ## Guida rapida alle epoche
 
@@ -30,7 +69,13 @@ Indizi rapidi di età nel mobile e negli oggetti (dettagli in `../metodo-perizia
 croce = dopo gli anni '30; compensato e truciolare = Novecento; segni di sega circolare = dopo
 la metà dell'Ottocento; incastri a coda di rondine irregolari = lavoro a mano.
 
-## Presepe napoletano
+## Esempi: specialità regionali italiane
+
+Ogni regione italiana ha specialità con un mercato da collezione. Quelle che seguono sono
+esempi del Sud, frequenti nelle zone di ritiro; lo stesso metodo vale per le specialità di
+altre regioni e di altri Paesi.
+
+### Presepe napoletano
 
 Il collezionismo di pastori napoletani del Settecento e dell'Ottocento è un mercato vero,
 con case d'asta dedicate. Negli sgomberi campani compaiono spesso pastori vecchi mescolati
@@ -53,7 +98,7 @@ a quelli moderni di San Gregorio Armeno.
 - **Dove vendere**: case d'asta con aste di arte presepiale (Napoli, Roma), Catawiki,
   collezionisti e associazioni del presepe; i pastori modesti su eBay e Subito.
 
-## Corallo e cammei (Torre del Greco)
+### Corallo e cammei (Torre del Greco)
 
 Torre del Greco è il centro mondiale della lavorazione del corallo e dei cammei.
 
@@ -75,7 +120,7 @@ Torre del Greco è il centro mondiale della lavorazione del corallo e dei cammei
   le regole aggiornate se spedisci fuori dall'UE.
 - **Dove vendere**: aste di gioielli, commercianti di Torre del Greco, Catawiki, eBay.
 
-## Ceramica di Vietri e maiolica campana
+### Ceramica di Vietri e maiolica campana
 
 - **Vietri sul Mare**: la produzione turistica moderna vale poco. Vale molto il
   **"periodo tedesco"** (anni '20–'40): artisti stranieri come Richard Dölker e Irene
@@ -90,7 +135,7 @@ Torre del Greco è il centro mondiale della lavorazione del corallo e dei cammei
   napoletane del Settecento (Giustiniani nell'Ottocento).
 - Per i marchi: De Mauri, *L'amatore di maioliche e porcellane*, e Chaffers (`ceramica-*`).
 
-## Arte sacra ed ex voto
+### Arte sacra ed ex voto
 
 - **Argenti sacri**: calici, ostensori, reliquiari, corone di statue, ex voto in lamina
   d'argento sbalzata (cuori, gambe, occhi). Gli argenti napoletani antichi hanno i
@@ -103,9 +148,9 @@ Torre del Greco è il centro mondiale della lavorazione del corallo e dei cammei
   di parrocchie o confraternite, numeri d'inventario, o il venditore non sa dire da dove
   viene, controlla la banca dati dei Carabinieri TPC (app iTPC) prima di comprare.
 
-## Fotografie d'epoca
+### Fotografie d'epoca
 
-Napoli e il Grand Tour hanno prodotto una quantità enorme di fotografie ottocentesche di
+L'Italia del Grand Tour (Napoli, Roma, Firenze, Venezia) ha prodotto una quantità enorme di fotografie ottocentesche di
 qualità, spesso finite in cassetti e album di famiglia.
 
 - **Tecniche, dalla più antica**: dagherrotipo (immagine su lastra a specchio, in custodia,

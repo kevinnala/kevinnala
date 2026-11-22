@@ -10,6 +10,13 @@ male, lo data male, lo mette nella categoria sbagliata o lo prezza come "roba de
 nonna". Il lavoro di questa skill è vedere quello che il venditore non ha visto, e
 dimostrarlo con prove, non con l'entusiasmo.
 
+**Criterio unico: il valore di rivendita.** Si cercano oggetti di qualunque epoca e di
+qualunque manifattura, italiana o internazionale, purché si possano rivendere con un margine
+reale (mercato dimostrabile, oggetto riconoscibile, margine che regge: vedi
+`references/categorie/epoche-e-stili.md#Il criterio`). Si cerca ovunque; la zona conta
+**solo per il ritiro a mano**: gli oggetti non spedibili devono essere nelle province di
+ritiro (oggi Campania, Latina e Frosinone).
+
 Consegna sempre una **scheda affare** (formato al passo 7) e mai una promessa:
 ogni attribuzione ha un grado di fiducia e ogni prezzo viene da vendite reali.
 
@@ -74,7 +81,7 @@ Da usare solo se lo script del passo 0 non basta:
 | Porcellane, maioliche, vetri (Murano, Gallé, Daum) | `references/categorie/ceramiche-vetri.md` |
 | Design e modernariato del Novecento | `references/categorie/design-modernariato.md` |
 | Orologi, giocattoli, videogiochi, LEGO, vinili, fumetti, libri, monete, francobolli | `references/categorie/altre-categorie.md` |
-| Riconoscere le epoche dagli stili; presepe napoletano, corallo e cammei, Vietri e maiolica campana, arte sacra, fotografie d'epoca, piccoli oggetti di pregio | `references/categorie/epoche-e-oggetti-campani.md` |
+| Il criterio del valore di rivendita; manifatture e marchi che fanno prezzo (Italia e mondo); riconoscere le epoche dagli stili; esempi di specialità regionali (presepe, corallo e cammei, Vietri, arte sacra, fotografie d'epoca); piccoli oggetti di pregio | `references/categorie/epoche-e-stili.md` |
 | Canali specializzati per categoria (aste di settore, chi compra, nicchie, forum, prezzi, perizie) | `references/canali-specializzati/` (indice nel `README.md`) |
 | Categoria non coperta: come mapparne l'ecosistema | `references/nuova-categoria.md` |
 | Manuali e banche dati da consultare | `references/manuali-consigliati.md` |
