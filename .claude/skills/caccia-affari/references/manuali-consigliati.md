@@ -1,9 +1,9 @@
 # Manuali e banche dati da consultare
 
-Questa skill contiene le regole pratiche e il metodo, non i libri interi: i manuali
-di riferimento sono protetti da diritto d'autore e non sono liberamente distribuibili.
-Se possiedi i PDF o le scansioni, mettili nella cartella `manuali/` della skill (vedi il
-suo README): Claude li consulterà durante le valutazioni.
+La skill include già una **biblioteca di 20 manuali storici di dominio pubblico** in
+testo completo: vedi `../manuali/INDICE.md`. I manuali moderni elencati qui sotto sono
+protetti da diritto d'autore e non si possono distribuire: se li possiedi in PDF o in
+scansione, mettili nella cartella `manuali/` (vedi il suo README) e Claude li consulterà.
 
 ## Manuali generali
 

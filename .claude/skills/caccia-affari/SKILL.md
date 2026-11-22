@@ -46,10 +46,13 @@ Leggi solo ciò che serve al caso:
 | Canali specializzati per categoria (aste di settore, chi compra, nicchie, forum, prezzi, perizie) | `references/canali-specializzati/` (indice nel `README.md`) |
 | Categoria non coperta: come mapparne l'ecosistema | `references/nuova-categoria.md` |
 | Manuali e banche dati da consultare | `references/manuali-consigliati.md` |
+| Biblioteca di 20 manuali storici in testo completo (marchi di ceramiche, punzoni d'argento, orologiai, pittori dell'Ottocento, numismatica, armi, tappeti, vetro, mobili) | `manuali/INDICE.md` e `manuali/testi/` |
 | Manuali in PDF dell'utente (se presenti) | `manuali/` |
 
-Se nella cartella `manuali/` ci sono file dell'utente, cercaci dentro (marchi,
-firme, punzoni) prima di affidarti alla memoria.
+Quando devi leggere un marchio, un punzone, una firma o il nome di una manifattura o di un
+artigiano, **cerca prima nei manuali** (`grep -n -i -C3 "<nome>" manuali/testi/*.txt`;
+l'indice dice quale libro usare) e poi in rete. Sono libri storici: affidabili per marchi,
+date e biografie, non per i prezzi. Cita il libro e la pagina quando lo usi.
 
 ## 1. Capire la richiesta
 

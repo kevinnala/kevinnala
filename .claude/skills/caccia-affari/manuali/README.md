@@ -1,5 +1,7 @@
 # Manuali personali
 
+La biblioteca di dominio pubblico già inclusa è in `testi/` (indice in `INDICE.md`).
+
 Metti qui i manuali che possiedi (PDF, scansioni, appunti, tabelle di punzoni,
 fotografie di firme certe, cataloghi d'asta scaricati) per dare a Claude più competenza
 durante le valutazioni.
