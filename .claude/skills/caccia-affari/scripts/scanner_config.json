@@ -429,7 +429,7 @@
   "url": "https://www.vinted.it/catalog?search_text={q}&order=newest_first"
  },
  "telegram": {
-  "chat_id": "",
+  "chat_id": "950034398",
   "punti_minimi": 9,
   "massimo_annunci": 15,
   "_nota": "il token del bot va nella variabile d'ambiente TELEGRAM_BOT_TOKEN, mai qui"
