@@ -296,6 +296,22 @@
    "wedgwood",
    "xix secolo",
    "zenith"
+  ],
+  "solo_ritiro": [
+   "non spedisco",
+   "no spedizione",
+   "no spedizioni",
+   "niente spedizione",
+   "non effettuo spedizioni",
+   "non si spedisce",
+   "solo ritiro",
+   "solo ritiro a mano",
+   "da ritirare",
+   "ritiro a mano",
+   "ritiro in zona",
+   "no corriere",
+   "visionabile e ritirabile",
+   "consegna a mano"
   ]
  },
  "province_ritiro": [

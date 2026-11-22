@@ -33,7 +33,7 @@ const attesa = (ms) => new Promise((r) => setTimeout(r, ms));
           azienda: !!a.advertiser?.company, n_foto: (a.images || []).length,
           foto: (a.images || []).slice(0, 3).map((x) => x.cdnBaseUrl + '?rule=gallery-desktop-2x-auto'),
           condizione: f['/item_condition']?.values?.[0]?.value || '',
-          spedizione: !!f['/item_shippable'], zona: r.zona, query: r.query,
+          spedizione: f['/item_shippable']?.values?.[0]?.key === '1', zona: r.zona, query: r.query,
         }));
       }
       process.stderr.write(`[${i + 1}/${richieste.length}] ${r.zona} "${r.query}": ${items.length} annunci\n`);

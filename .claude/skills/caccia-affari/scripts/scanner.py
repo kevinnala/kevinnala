@@ -165,8 +165,12 @@ def main(argv):
     adesso = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     nuovi, righe = 0, []
     ritiro = set(cfg.get("province_ritiro", []))
+    no_sped = [norm(x) for x in cfg.get("segnali", {}).get("solo_ritiro", [])]
     scartati_distanza = 0
     for a in annunci:
+        testo_n = f" {norm(a['titolo'])} {norm(a['testo'])} "
+        if any(f" {x} " in testo_n for x in no_sped) or (" ritiro " in testo_n and " sped" not in testo_n):
+            a["spedizione"] = False  # il venditore scrive che non spedisce, o parla solo di ritiro
         if ritiro and not a.get("spedizione") and a.get("provincia") not in ritiro:
             scartati_distanza += 1  # solo ritiro a mano, ma troppo lontano
             continue
