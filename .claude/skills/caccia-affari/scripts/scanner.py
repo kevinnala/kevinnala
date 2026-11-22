@@ -241,6 +241,8 @@ def main(argv):
                      f"{a['categoria'] or '?'} | {'; '.join(a['motivi'])[:160]} |\n")
     with open(nome.replace(".md", ".json"), "w", encoding="utf-8") as fh:
         json.dump(da_guardare, fh, ensure_ascii=False, indent=1)
+    if "--da-archivio" not in argv:
+        memoria.aggiungi_coda(da_guardare, "parole")  # restano in coda finché non vengono periziati
     if "--telegram" in argv:
         subprocess.run([sys.executable, os.path.join(QUI, "notifica_telegram.py")])
     print(f"Report: {nome}\nAnnunci letti {len(annunci)}, nuovi {nuovi}, da guardare {len(da_guardare)}.")

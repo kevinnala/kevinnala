@@ -286,6 +286,7 @@ def main(argv):
     with open(F_CAND, "w", encoding="utf-8") as fh:
         json.dump(cand, fh, ensure_ascii=False, indent=1)
     n = griglie(cand, e.get("per_griglia", 20)) if cand else 0
+    memoria.aggiungi_coda(cand, "griglie")  # quelli non periziati restano in coda, da vedere a blocchi
     # tutto ciò che è passato dal filtro o dalle griglie non torna al giro dopo
     memoria.aggiungi_visti([a["id"] for a in annunci])
     st = memoria.stato()

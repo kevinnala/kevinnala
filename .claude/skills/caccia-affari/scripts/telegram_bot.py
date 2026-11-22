@@ -14,6 +14,8 @@ Comandi che l'utente può scrivere (il numero #N è quello delle perizie):
   /scartato #12 era una stampa → non l'ho presa (o la perizia era sbagliata) e perché
   /perso #12                   → l'ha comprata qualcun altro
   /nota testo libero           → un'osservazione da ricordare (es. "le tazzine Ginori si vendono male")
+  /altri 30                    → al prossimo giro altre 30 perizie dalla coda (annunci non ancora periziati)
+  /coda                        → quanti annunci aspettano la perizia
   /bilancio                    → riepilogo di acquisti, vendite e utile
   /lezioni                     → cosa ho imparato dagli esiti
   /aiuto                       → questo elenco
@@ -36,11 +38,14 @@ AIUTO = """<b>Come dirmi com'è andata</b>
 /scartato #12 era una stampa → non presa, e perché
 /perso #12 → l'ha presa qualcun altro
 /nota testo → un'osservazione da ricordare
+/altri 30 → al prossimo giro altre 30 perizie dalla coda
+/coda → quanti annunci aspettano la perizia
 /bilancio → acquisti, vendite e utile
 /lezioni → cosa ho imparato
 Puoi usare il link dell'annuncio al posto di #12. Leggo i messaggi a ogni giro dello scanner."""
 
-COMANDI = ("preso", "comprato", "venduto", "scartato", "perso", "nota", "bilancio", "lezioni", "aiuto", "start", "help")
+COMANDI = ("preso", "comprato", "venduto", "scartato", "perso", "nota", "bilancio", "lezioni", "aiuto", "start", "help",
+           "altri", "coda")
 NUM = re.compile(r"(\d+(?:[.,]\d+)?)")
 
 
@@ -63,6 +68,12 @@ def interpreta(testo):
         return None, html.escape(memoria.bilancio())
     if cmd == "lezioni":
         return None, html.escape(memoria.lezioni())
+    if cmd == "coda":
+        return None, f"📥 In coda ci sono {len(memoria.coda())} annunci non ancora periziati. Scrivi /altri 30 per riceverne un blocco."
+    if cmd == "altri":
+        n = int(prezzo(resto) or 30)
+        return {"tipo": "altri", "quanti": n}, (f"📥 Ok: al prossimo giro ti mando altre {n} perizie dalla coda "
+                                               f"(in attesa: {len(memoria.coda())}).")
     if cmd == "nota":
         return {"tipo": "nota", "testo": resto}, "📝 Nota salvata."
     tipo = "preso" if cmd == "comprato" else cmd
@@ -116,7 +127,9 @@ def main(argv):
         print(f"«{msg['text']}» → {esito} ")
         if prova:
             continue
-        if esito:
+        if esito and esito["tipo"] == "altri":
+            s["blocchi_richiesti"] = s.get("blocchi_richiesti", 0) + esito["quanti"]
+        elif esito:
             esito["messaggio"] = msg["text"]
             memoria.registra_esito(esito)
         tg.api("sendMessage", chat_id=cid, text=risposta, parse_mode="HTML", disable_web_page_preview="true",

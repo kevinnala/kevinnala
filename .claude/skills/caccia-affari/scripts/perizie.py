@@ -113,14 +113,21 @@ def da_esplora():
 
 
 def prepara(n, max_foto=4, con_scelti=False):
+    """Prende prima gli scelti nelle griglie (se --scelti), poi la coda permanente in ordine di priorità
+    (scelti dei giri passati, scanner per parole, resto delle griglie). Aggiunge i blocchi chiesti
+    dall'utente con /altri."""
     gia = memoria.ids_periziati()
+    extra = memoria.stato().get("blocchi_richiesti", 0)
+    if extra:
+        print(f"L'utente ha chiesto altri {extra} annunci (/altri): ne preparo {n} + {extra}.")
+        n += extra
     scelti = [a for a in da_esplora() if a["id"] not in gia] if con_scelti else []
-    try:
-        annunci, nome = ultimo_report()
-    except SystemExit:
-        annunci, nome = [], "nessun report dello scanner per parole"
+    if scelti:
+        memoria.aggiungi_coda(scelti, "scelti")
     presi = {a["id"] for a in scelti}
-    scelti += [a for a in annunci if a["id"] not in gia and a["id"] not in presi][: max(0, n - len(scelti))]
+    in_coda = memoria.coda()
+    nome = f"coda permanente ({len(in_coda)} in attesa)"
+    scelti += [a for a in in_coda if a["id"] not in presi][: max(0, n - len(scelti))]
     os.makedirs(DIR, exist_ok=True)
     out = []
     for a in scelti:
@@ -137,14 +144,14 @@ def prepara(n, max_foto=4, con_scelti=False):
             "fonte": a.get("fonte") or "Subito", "luogo": f"{a.get('comune') or ''} ({a.get('provincia') or ''})".strip(),
             "spedizione": a.get("spedizione"), "categoria": a.get("categoria"), "punti": a.get("punti"),
             "condizione": a.get("condizione"), "data": a.get("data"), "testo": (a.get("testo") or "")[:1500],
-            "origine": "griglie" if a.get("k") else "parole",
+            "origine": a.get("origine") or ("griglie" if a.get("k") else "parole"),
             "extra": {k: a[k] for k in ("termine", "tribunale", "prezzo_con_oneri") if a.get(k)},
             "provino": prov if provino(files, prov) else None, "n_foto_scaricate": len(files),
         })
     with open(F_CANDIDATI, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=1)
     print(f"Report: {os.path.basename(nome)} · già periziati esclusi: {len(gia)} · candidati: {len(out)} "
-          f"(dalle griglie: {sum(c['origine'] == 'griglie' for c in out)})")
+          f"(dalle griglie: {sum(c['origine'] in ('griglie', 'scelti') for c in out)})")
     print(f"Candidati: {F_CANDIDATI}")
     for i, c in enumerate(out, 1):
         print(f"{i:2}. [{c['id']}] {c['prezzo']} € · {c['titolo'][:60]} · {c['categoria']} · provino: {c['provino'] or 'nessuna foto'}")
@@ -235,6 +242,7 @@ def componi(perizie, max_car=3900):
     intest = (f"🧾 <b>PERIZIE · {memoria.oggi()}</b>\n{len(perizie)} annunci periziati: "
               f"{sum(p['verdetto'] == 'COMPRA' for p in perizie)} COMPRA · {sum(p['verdetto'] == 'TRATTA' for p in perizie)} TRATTA · "
               f"{sum(p['verdetto'] == 'VERIFICA PRIMA' for p in perizie)} VERIFICA · {len(lascia)} LASCIA\n"
+              f"In coda per i prossimi blocchi: {len(memoria.coda()) - len(perizie)} annunci · /altri 30 per riceverne altri\n"
               "Per dirmi com'è andata: /preso #N prezzo · /venduto #N prezzo canale · /scartato #N motivo · /aiuto")
     pezzi = [intest] + [scheda(p) for p in buone]
     if lascia:
@@ -280,6 +288,10 @@ def invia(percorso, prova=False):
         if not r.get("ok"):
             sys.exit(f"Telegram ha rifiutato il messaggio: {r}")
     memoria.registra_perizie(perizie)
+    st = memoria.stato()
+    st["blocchi_richiesti"] = 0
+    memoria.salva_stato(st)
+    print(f"In coda per i prossimi blocchi: {len(memoria.coda())} annunci.")
     print(f"Inviate {len(perizie)} perizie in {len(testi)} messaggi; memoria aggiornata ({memoria.F_PERIZIATI}).")
 
 

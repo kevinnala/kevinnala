@@ -143,6 +143,12 @@ python3 $S/perizie.py invia .claude/skills/caccia-affari/risultati/perizie/periz
 #    7. commit e push di .claude/skills/caccia-affari/memoria/ (senza push la memoria si perde)
 ```
 
+- **Coda a blocchi** (`memoria/coda.jsonl`): tutto ciò che è interessante ma non periziato nel
+  giro (resto del report per parole e candidati delle griglie) resta in coda per 21 giorni.
+  L'utente chiede altri blocchi con `/altri 30` su Telegram (o in chat): `perizie.py prepara`
+  ne aggiunge automaticamente tanti quanti richiesti, scelti prima, poi per parole, poi griglie.
+  `memoria.py coda` dice quanti ne aspettano. Se l'utente chiede un blocco in chat senza giro:
+  `perizie.py prepara --n 30` (prende dalla coda) e poi i passi 5-7.
 - **Budget e margine** dell'utente: `esplora.budget` (500 €) e `esplora.margine_minimo_netto`
   (50 €) in `scanner_config.json`. COMPRA/TRATTA solo se il netto atteso supera il margine minimo.
 - **Scanner generale** (`esplora.py`): Subito per categoria (collezionismo, arredamento, libri e
