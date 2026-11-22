@@ -8,6 +8,8 @@ la foto dice quello che la descrizione non dice.
   esplora.py                 # giro completo (fonti in scanner_config.json → "esplora")
   esplora.py --pagine 3      # prova veloce (al massimo 3 pagine per categoria)
   esplora.py --griglie       # rifà solo le griglie dall'ultimo giro
+  esplora.py --profondo 40   # su richiesta: scava 40 pagine più indietro per categoria (annunci di
+                             # qualche giorno fa mai visti); utile quando l'utente chiede "altri"
 
 Uscita (risultati/esplora/): griglia-01.jpg, griglia-02.jpg ... e candidati.json
 (numero → annuncio). Poi: Claude scrive i numeri scelti in risultati/esplora/scelti.txt
@@ -53,13 +55,17 @@ def norm(s):
 
 
 # --- fonti -----------------------------------------------------------------------
-def subito(cat_cfg, budget, ultimo, pagine_max):
-    """Pagine di categoria in ordine di data; si ferma quando arriva agli annunci del giro prima."""
+def subito(cat_cfg, budget, ultimo, pagine_max, profondo=0):
+    """Pagine di categoria in ordine di data; si ferma quando arriva agli annunci del giro prima.
+    profondo=N: salta le pagine già lette di solito e scava N pagine più indietro (annunci più vecchi)."""
     out = []
     for c in cat_cfg:
         url_base = c["url"].format(budget=budget)
         limite = min(c.get("pagine_max", 15), pagine_max or 999)
-        for blocco in range(0, limite, 5):
+        inizio = 0
+        if profondo:
+            inizio, limite, ultimo = limite, limite + profondo, None
+        for blocco in range(inizio, limite, 5):
             ric = [{"url": f"{url_base}&o={p}" if p > 1 else url_base, "zona": "Italia", "query": c["nome"]}
                    for p in range(blocco + 1, min(blocco + 6, limite + 1))]
             proc = subprocess.run(["node", os.path.join(QUI, "subito_fetch.js")], input=json.dumps(ric),
@@ -267,13 +273,14 @@ def main(argv):
         print(f"Griglie: {griglie(cand, e.get('per_griglia', 20))}")
         return 0
     pagine_max = int(argv[argv.index("--pagine") + 1]) if "--pagine" in argv else None
+    profondo = int(argv[argv.index("--profondo") + 1]) if "--profondo" in argv else 0
     st = memoria.stato()
     ultimo = st.get("esplora_ultimo_giro")
     inizio = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     visti = memoria.visti() | memoria.ids_periziati()
     annunci = []
     if e.get("subito"):
-        annunci += subito(e["subito"], e["budget"], ultimo, pagine_max)
+        annunci += subito(e["subito"], e["budget"], ultimo, pagine_max, profondo)
     if e.get("wallapop", {}).get("categorie"):
         w = dict(e["wallapop"], regioni_ritiro=cfg.get("regioni_ritiro", []))
         annunci += wallapop(w, e["budget"], pagine_max)
@@ -290,7 +297,8 @@ def main(argv):
     # tutto ciò che è passato dal filtro o dalle griglie non torna al giro dopo
     memoria.aggiungi_visti([a["id"] for a in annunci])
     st = memoria.stato()
-    st["esplora_ultimo_giro"] = inizio
+    if not profondo:  # lo scavo all'indietro non sposta il punto di partenza dei giri normali
+        st["esplora_ultimo_giro"] = inizio
     memoria.salva_stato(st)
     print(f"Annunci letti: {letti} · scartati: {scarti} · candidati nelle griglie: {len(cand)} in {n} griglie")
     print(f"Griglie: {OUT}/griglia-01.jpg ... griglia-{n:02d}.jpg · elenco: {F_CAND}")
