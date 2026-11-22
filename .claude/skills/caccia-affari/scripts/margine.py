@@ -42,8 +42,32 @@ CANALI = {
         pct=[(None, 0.0)], fisso=0.0, iva=False,
         nota="Subito.it privato: nessuna commissione per il venditore. Da ricontrollare."),
     "catawiki": dict(
-        pct=[(None, 0.125)], fisso=0.0, iva=False,
-        nota="Catawiki: circa 12,5% più una quota fissa non inclusa qui (tabella cambiata dal 17/8/2026: verifica e usa --commissione/--fisso)."),
+        pct=[(None, 0.125)], fisso=0.0, iva=True,
+        nota="Catawiki: 12,5% + una quota fissa, IVA esclusa (verificato); la quota fissa non è inclusa: aggiungila con --fisso."),
+    "chrono24": dict(
+        pct=[(None, 0.0695)], fisso=0.0, iva=False,
+        nota="Chrono24, venditore privato: 6,95% (verificato)."),
+    "discogs": dict(
+        pct=[(None, 0.09)], fisso=0.0, iva=False,
+        nota="Discogs: 9% (verificato; anche sulla spedizione, con tetto per ordine) + commissione di pagamento non inclusa."),
+    "reverb": dict(
+        pct=[(None, 0.0819)], fisso=0.49, iva=False,
+        nota="Reverb: 5% di vendita (verificato) + circa 3,19% + 0,49 di pagamento (indicativo)."),
+    "vestiaire": dict(
+        pct=[(None, 0.20)], fisso=0.0, iva=False,
+        nota="Vestiaire Collective: 17% + 3% di pagamento per articoli 75–15.000 € (verificato)."),
+    "delcampe": dict(
+        pct=[(None, 0.055)], fisso=0.15, iva=False,
+        nota="Delcampe: circa 5,5% + piccola quota per oggetto (indicativo, da ricontrollare)."),
+    "tarisio": dict(
+        pct=[(None, 0.20)], fisso=0.0, iva=False,
+        nota="Tarisio (violini e archi): 20% sull'aggiudicazione fino a circa 9.000 € (verificato)."),
+    "emovieposter": dict(
+        pct=[(None, 0.28)], fisso=0.0, iva=False,
+        nota="eMoviePoster: il venditore incassa circa il 72% di quanto paga l'acquirente (verificato); --vendita = prezzo pagato."),
+    "stockx": dict(
+        pct=[(None, 0.12)], fisso=0.0, iva=False,
+        nota="StockX: 9–7% secondo il livello + 3% di pagamento, minimo circa 5 € (verificato); solo nuovo."),
     "casa_aste": dict(
         pct=[(None, 0.17)], fisso=0.0, iva=True,
         nota="Casa d'aste: tipicamente 10–25% sull'aggiudicazione + costi foto/assicurazione; qui 15% + 2%. Usa i valori del mandato reale con --commissione."),

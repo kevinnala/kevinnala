@@ -17,12 +17,21 @@ prezzo di vendita.
 | **Cardmarket** | 5% per le carte singole (privati), un po' diverso per il sigillato | carte collezionabili non gradate, pubblico europeo |
 | **Vinted** | 0% per il venditore (paga l'acquirente) | moda vintage, oggetti piccoli; poco adatto agli oggetti di valore alto |
 | **Subito.it** | 0% per il privato (spedizione TuttoSubito pagata dall'acquirente) | oggetti pesanti o fragili da ritirare a mano, pubblico locale |
-| **Catawiki** | circa 12,5% + una quota fissa (tabella cambiata dal 17/08/2026: verificare) | oggetti da 100 € a qualche migliaio, con esperti che selezionano i lotti; dà credibilità |
+| **Catawiki** | 12,5% + una quota fissa, IVA esclusa | oggetti da 100 € a qualche migliaio, con esperti che selezionano i lotti; dà credibilità |
 | **Casa d'aste** | 10–25% sull'aggiudicazione + costi (foto, assicurazione, trasporto) | dipinti, arredi, argenti, design firmato sopra ~1.000 €; i grandi nomi solo lì |
 | **Antiquario / commerciante** | nessuna commissione, ma offre il 30–50% del prezzo di vendita al pubblico | vendere subito, oggetti difficili, liquidità |
-| **Chrono24** | commissione percentuale per il privato (verificare) | orologi di marca |
-| **Discogs** | commissione percentuale (verificare) | vinili e dischi |
-| **BrickLink** | commissione percentuale (verificare) | LEGO sfuso e minifigure |
+| **Chrono24** | 6,95% per il privato | orologi di marca |
+| **Discogs** | 9% su prezzo e spedizione (con tetto per ordine) + pagamento | vinili e dischi |
+| **Reverb** | 5% + pagamento (circa 3%) | strumenti musicali, hi-fi |
+| **Vestiaire Collective** | 17% + 3% di pagamento (75–15.000 €) | borse e moda di lusso |
+| **Delcampe** | circa 5,5% + piccola quota per oggetto | francobolli, cartoline, monete economiche |
+| **Tarisio** | 20% sull'aggiudicazione (fino a circa 9.000 €) | violini e archi |
+| **eMoviePoster** | il venditore incassa circa il 72% | manifesti di cinema |
+| **BrickLink** | commissione percentuale (verificare; sito instabile a fine 2026) | LEGO sfuso e minifigure |
+
+**Canali specializzati per categoria** (case d'asta di settore, commercianti che comprano,
+marketplace di nicchia, forum, prezzi, perizie): vedi `canali-specializzati/`. Confronta
+sempre almeno un canale generalista con uno specializzato.
 
 ## Regole generali
 
@@ -82,8 +91,8 @@ prezzo di vendita.
   in Germania.
 
 ### Design e modernariato
-- **Pezzi originali di designer noti**: aste di design, Catawiki, Pamono, 1stDibs (per
-  commercianti), eBay internazionale.
+- **Pezzi originali di designer noti**: aste di design, Catawiki, Selency (aperto ai
+  privati), eBay internazionale; Pamono e 1stDibs solo se vendi come professionista.
 - **Modernariato generico anni '50–'70**: Subito, Facebook, Vinted, mercatini.
 
 ### Orologi

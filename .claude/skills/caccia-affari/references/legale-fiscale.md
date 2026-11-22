@@ -15,6 +15,24 @@ Esportazione della Soprintendenza competente.
   (anche con l'app iTPC).
 - **Oggetti con il segno di un furto**: numeri d'inventario abrasi, etichette rimosse.
 
+## Categorie con regole speciali
+
+- **Fossili trovati in Italia**: se di interesse paleontologico appartengono allo Stato;
+  il ritrovamento va denunciato e non si possono raccogliere né vendere. I fossili esteri
+  con provenienza documentata si commerciano.
+- **Arte precolombiana e reperti stranieri**: senza prova di uscita lecita dal Paese
+  d'origine (di norma prima del 1970) non comprare: i sequestri sono frequenti.
+- **Armi bianche** (sciabole, baionette, pugnali, spade): per comprarle servono porto
+  d'armi o nulla osta, vanno denunciate entro 72 ore e si vendono solo a chi ha gli stessi
+  titoli. Le armi da fuoco antiche (ad avancarica o costruite prima del 1890) hanno regole
+  proprie. Uniformi ed elmetti sono liberi. Nel dubbio, chiedi in Questura.
+- **Vini e distillati**: vendere alcolici in modo abituale richiede la licenza fiscale
+  dell'Agenzia delle Dogane (art. 29 D.Lgs. 504/95). Una cantina privata si vende tramite
+  una casa d'aste.
+- **Oro**: si vende a peso solo agli operatori iscritti al Registro Compro Oro dell'OAM.
+- **Documenti da archivi pubblici**: possono essere beni demaniali, quindi non vendibili.
+- **Icone e antiquariato verso la Russia**: esportazione vietata dalle sanzioni UE.
+
 ## Specie protette (CITES)
 
 - **Avorio**: nell'UE il commercio è quasi del tutto vietato dal 2022 (Reg. UE
@@ -31,9 +49,10 @@ Esportazione della Soprintendenza competente.
   (dipinti, sculture, arredi, argenti...) per uscire dall'Italia, anche verso un
   altro Paese UE, richiedono l'**attestato di libera circolazione** rilasciato
   dall'Ufficio Esportazione.
-- Per molte categorie, sotto un valore di **13.500 €** è possibile un'autodichiarazione
-  invece della procedura completa (sono escluse alcune categorie, come i reperti
-  archeologici). Verifica la procedura aggiornata sul portale del Ministero della Cultura.
+- Per molte categorie, sotto un valore di **13.500 €** basta una dichiarazione di valore
+  (DVAL) invece dell'attestato completo (art. 68 D.Lgs. 42/2004; sono escluse alcune
+  categorie, come i reperti archeologici). Verifica la procedura aggiornata sul portale
+  del Ministero della Cultura.
 - Verso Paesi fuori dall'UE può servire anche la **licenza di esportazione UE**
   (Reg. CE 116/2009) sopra certe soglie di valore.
 - Conseguenza pratica: **vendere su eBay a un acquirente estero un dipinto dell'Ottocento
