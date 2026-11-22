@@ -401,5 +401,37 @@
   "cloisonne",
   "porcellana cinese",
   "giada"
- ]
+ ],
+ "fonti": {
+  "subito": true,
+  "wallapop": true,
+  "vinted": true
+ },
+ "province_ritiro_nomi": [
+  "Napoli",
+  "Caserta",
+  "Salerno",
+  "Avellino",
+  "Benevento",
+  "Latina",
+  "Frosinone"
+ ],
+ "regioni_ritiro": [
+  "Campania"
+ ],
+ "wallapop": {
+  "latitudine": 40.8518,
+  "longitudine": 14.2681,
+  "pausa_s": 2,
+  "_nota": "punto di ricerca: Napoli; Wallapop ordina per novità e include Italia e Spagna"
+ },
+ "vinted": {
+  "url": "https://www.vinted.it/catalog?search_text={q}&order=newest_first"
+ },
+ "telegram": {
+  "chat_id": "",
+  "punti_minimi": 9,
+  "massimo_annunci": 15,
+  "_nota": "il token del bot va nella variabile d'ambiente TELEGRAM_BOT_TOKEN, mai qui"
+ }
 }

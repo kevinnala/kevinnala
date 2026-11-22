@@ -8,6 +8,7 @@ Uso:
   scanner.py --max 10             # solo le prime 10 ricerche (prova veloce)
   scanner.py --anche-visti        # rimetti nel report anche gli annunci già visti
   scanner.py --config altro.json  # altra configurazione
+  scanner.py --telegram           # alla fine manda la lista su Telegram (vedi notifica_telegram.py)
   scanner.py --da-archivio        # rifà il report dagli annunci già salvati (dopo aver cambiato i segnali)
 
 Configurazione: scanner_config.json (zone, ricerche, segnali). Archivio: risultati/annunci.sqlite.
@@ -29,6 +30,7 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 RADICE = os.path.normpath(os.path.join(QUI, ".."))
 sys.path.insert(0, QUI)
 import categoria as router  # noqa: E402
+import fonti_extra  # noqa: E402
 
 OUT = os.path.join(RADICE, "risultati")
 
@@ -159,8 +161,23 @@ def main(argv):
         annunci = [json.loads(j) for (j,) in db.execute("SELECT json FROM annunci")]
         db.execute("DELETE FROM annunci")
     else:
-        sys.stderr.write(f"{len(richieste)} pagine da scaricare (ritmo prudente, qualche minuto)...\n")
-        annunci = scarica(richieste)
+        fonti = cfg.get("fonti", {"subito": True})
+        annunci = []
+        if fonti.get("subito", True):
+            sys.stderr.write(f"Subito: {len(richieste)} pagine da scaricare (ritmo prudente)...\n")
+            annunci += scarica(richieste)
+        q_extra = cfg["ricerche"] + cfg.get("ricerche_marchi", [])
+        if massimo:
+            q_extra = q_extra[:massimo]
+        if fonti.get("wallapop"):
+            annunci += fonti_extra.wallapop(q_extra, cfg.get("wallapop", {}), set(cfg.get("province_ritiro_nomi", [])),
+                                            set(cfg.get("regioni_ritiro", [])))
+        if fonti.get("vinted"):
+            annunci += fonti_extra.vinted(q_extra, cfg.get("vinted", {}))
+    unici = {}
+    for a in annunci:  # lo stesso annuncio può uscire da più ricerche o fonti
+        unici.setdefault(a["id"], a)
+    annunci = list(unici.values())
     visti = {r[0] for r in db.execute("SELECT id FROM annunci")}
     adesso = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     nuovi, righe = 0, []
@@ -171,7 +188,10 @@ def main(argv):
         testo_n = f" {norm(a['titolo'])} {norm(a['testo'])} "
         if any(f" {x} " in testo_n for x in no_sped) or (" ritiro " in testo_n and " sped" not in testo_n):
             a["spedizione"] = False  # il venditore scrive che non spedisce, o parla solo di ritiro
-        if ritiro and not a.get("spedizione") and a.get("provincia") not in ritiro:
+        locale = a.get("locale", a.get("provincia") in ritiro)
+        if a.get("riservato"):
+            continue  # già riservato a un altro acquirente
+        if ritiro and not a.get("spedizione") and not locale:
             scartati_distanza += 1  # solo ritiro a mano, ma troppo lontano
             continue
         cat = router.classifica(f"{a['titolo']} {a['testo']}", dati)
@@ -200,10 +220,12 @@ def main(argv):
         for i, a in enumerate(da_guardare, 1):
             prezzo = f"{a['prezzo']:.0f} €" if a["prezzo"] else "—"
             titolo = a["titolo"].replace("|", "/")[:70]
-            fh.write(f"| {i} | {a['punti']} | {prezzo} | [{titolo}]({a['url']}) | {a['comune']} ({a['provincia']}){' 📦' if a.get('spedizione') else ' 🤝'} | "
+            fh.write(f"| {i} | {a['punti']} | {prezzo} | [{titolo}]({a['url']}) | {a.get('fonte', 'Subito')} · {a['comune']} ({a['provincia']}){' 📦' if a.get('spedizione') else ' 🤝'} | "
                      f"{a['categoria'] or '?'} | {'; '.join(a['motivi'])[:160]} |\n")
     with open(nome.replace(".md", ".json"), "w", encoding="utf-8") as fh:
         json.dump(da_guardare, fh, ensure_ascii=False, indent=1)
+    if "--telegram" in argv:
+        subprocess.run([sys.executable, os.path.join(QUI, "notifica_telegram.py")])
     print(f"Report: {nome}\nAnnunci letti {len(annunci)}, nuovi {nuovi}, da guardare {len(da_guardare)}.")
     return 0
 

@@ -96,7 +96,7 @@ l'indice dice quale libro usare), poi negli indici di `dati/` (`grep -i "<nome>"
 dati/*.tsv`: date di attività e tipi di oggetto per verificare la coerenza) e poi in rete. Sono libri storici: affidabili per marchi,
 date e biografie, non per i prezzi. Cita il libro e la pagina quando lo usi.
 
-## Scanner automatico (Subito)
+## Scanner automatico (Subito, Wallapop, Vinted)
 
 ```bash
 python3 .claude/skills/caccia-affari/scripts/scanner.py            # giro completo (~25 min)
@@ -104,6 +104,12 @@ python3 .claude/skills/caccia-affari/scripts/scanner.py --max 5    # prova veloc
 python3 .claude/skills/caccia-affari/scripts/scanner.py --da-archivio  # ricalcola dopo aver cambiato i segnali
 python3 .claude/skills/caccia-affari/scripts/foto.py <url> --max-foto 3  # testo e foto di un annuncio
 ```
+
+Fonti (attivabili in `fonti` di `scanner_config.json`): **Subito** (tutta Italia + zone di
+ritiro), **Wallapop** (Italia e Spagna, interfaccia di ricerca pubblica), **Vinted** (pagina
+pubblica di ricerca, sempre con spedizione). eBay rifiuta i browser automatici: servirebbe
+la sua API ufficiale. Con `--telegram` alla fine manda la lista dei migliori su Telegram
+(`scripts/notifica_telegram.py`, istruzioni in testa al file).
 
 Cerca in tutta Italia e nelle zone di ritiro; tiene gli annunci con spedizione da ovunque e
 quelli **solo a mano** soltanto nelle province di ritiro (`province_ritiro` in
