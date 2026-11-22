@@ -1,0 +1,179 @@
+#!/usr/bin/env python3
+"""Scanner di Subito.it: cerca annunci nelle zone configurate con le parole dei
+venditori inconsapevoli, salta quelli già visti, li smista per categoria con
+categoria.py, assegna un punteggio di "possibile affare" e scrive un report.
+
+Uso:
+  scanner.py                      # tutte le zone e tutte le ricerche
+  scanner.py --max 10             # solo le prime 10 ricerche (prova veloce)
+  scanner.py --anche-visti        # rimetti nel report anche gli annunci già visti
+  scanner.py --config altro.json  # altra configurazione
+
+Configurazione: scanner_config.json (zone, ricerche, segnali). Archivio: risultati/annunci.sqlite.
+Report: risultati/report-AAAA-MM-GG-HHMM.md (i migliori in cima).
+
+Il punteggio NON è una stima di valore: ordina gli annunci da guardare per primi.
+La perizia vera la fa Claude con la skill, sui primi della lista.
+"""
+import datetime as dt
+import json
+import os
+import re
+import sqlite3
+import subprocess
+import sys
+import urllib.parse
+
+QUI = os.path.dirname(os.path.abspath(__file__))
+RADICE = os.path.normpath(os.path.join(QUI, ".."))
+sys.path.insert(0, QUI)
+import categoria as router  # noqa: E402
+
+OUT = os.path.join(RADICE, "risultati")
+
+
+def carica_config(percorso):
+    with open(percorso, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def costruisci_richieste(cfg, massimo=None):
+    ric = []
+    for q in cfg["ricerche"]:
+        for z in cfg["zone"]:
+            url = z["url"].format(q=urllib.parse.quote_plus(q))
+            ric.append({"url": url, "zona": z["nome"], "query": q})
+    if massimo:
+        ric = ric[: massimo * len(cfg["zone"])]
+    return ric
+
+
+def scarica(richieste):
+    proc = subprocess.run(["node", os.path.join(QUI, "subito_fetch.js")], input=json.dumps(richieste),
+                          capture_output=True, text=True, timeout=60 * 60)
+    sys.stderr.write(proc.stderr)
+    annunci = {}
+    for riga in proc.stdout.splitlines():
+        try:
+            a = json.loads(riga)
+        except json.JSONDecodeError:
+            continue
+        if a["id"] in annunci:
+            annunci[a["id"]]["query"] += ", " + a["query"]
+        else:
+            annunci[a["id"]] = a
+    return list(annunci.values())
+
+
+def norm(s):
+    return router.norm(s or "")
+
+
+def punteggio(a, cat, cfg):
+    """Ritorna (punti, motivi). Più alto = da guardare prima."""
+    s = cfg["segnali"]
+    testo = f" {norm(a['titolo'])} {norm(a['testo'])} "
+    punti, motivi = 0, []
+    if cat:
+        punti += 2
+        motivi.append(f"categoria: {cat[0][1]['id']}")
+    else:
+        punti -= 1
+    if a["azienda"]:
+        punti -= 2
+        motivi.append("venditore professionale")
+    else:
+        punti += 1
+    for parola in s["inconsapevole"]:
+        if f" {norm(parola)} " in testo:
+            punti += 2
+            motivi.append(f"\"{parola}\"")
+    for parola in s["negativi"]:
+        if f" {norm(parola)} " in testo:
+            punti -= 3
+            motivi.append(f"neg: \"{parola}\"")
+    lung = len(a["testo"] or "")
+    if lung < 120:
+        punti += 1
+        motivi.append("descrizione scarna")
+    if a["n_foto"] <= 2:
+        punti += 1
+        motivi.append("poche foto")
+    p = a["prezzo"]
+    if p is None or p == 0:
+        motivi.append("prezzo non indicato")
+    elif p <= s["prezzo_basso"]:
+        punti += 1
+        motivi.append(f"prezzo basso ({p} €)")
+    try:
+        ore = (dt.datetime.now() - dt.datetime.fromisoformat(a["data"])).total_seconds() / 3600
+        if ore <= 24:
+            punti += 1
+            motivi.append("pubblicato nelle ultime 24 ore")
+        elif ore > 24 * s.get("giorni_vecchio", 120):
+            punti -= 1
+            motivi.append(f"annuncio vecchio ({int(ore // 24)} giorni)")
+    except ValueError:
+        pass
+    return punti, motivi
+
+
+def apri_db():
+    os.makedirs(OUT, exist_ok=True)
+    db = sqlite3.connect(os.path.join(OUT, "annunci.sqlite"))
+    db.execute("""CREATE TABLE IF NOT EXISTS annunci (id TEXT PRIMARY KEY, visto_il TEXT, titolo TEXT,
+                  prezzo REAL, url TEXT, comune TEXT, provincia TEXT, categoria TEXT, punti INTEGER, json TEXT)""")
+    return db
+
+
+def main(argv):
+    cfg_path = os.path.join(QUI, "scanner_config.json")
+    if "--config" in argv:
+        cfg_path = argv[argv.index("--config") + 1]
+    massimo = int(argv[argv.index("--max") + 1]) if "--max" in argv else None
+    cfg = carica_config(cfg_path)
+    dati = json.load(open(router.CATALOGO, encoding="utf-8"))
+    richieste = costruisci_richieste(cfg, massimo)
+    sys.stderr.write(f"{len(richieste)} pagine da scaricare (ritmo prudente, qualche minuto)...\n")
+    annunci = scarica(richieste)
+    db = apri_db()
+    visti = {r[0] for r in db.execute("SELECT id FROM annunci")}
+    adesso = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+    nuovi, righe = 0, []
+    for a in annunci:
+        cat = router.classifica(f"{a['titolo']} {a['testo']}", dati)
+        punti, motivi = punteggio(a, cat, cfg)
+        a["categoria"] = cat[0][1]["id"] if cat else ""
+        a["punti"], a["motivi"] = punti, motivi
+        if a["id"] not in visti:
+            nuovi += 1
+            db.execute("INSERT INTO annunci VALUES (?,?,?,?,?,?,?,?,?,?)",
+                       (a["id"], adesso, a["titolo"], a["prezzo"], a["url"], a["comune"], a["provincia"],
+                        a["categoria"], punti, json.dumps(a, ensure_ascii=False)))
+            righe.append(a)
+        elif "--anche-visti" in argv:
+            righe.append(a)
+    db.commit()
+    righe.sort(key=lambda x: (-x["punti"], x["prezzo"] or 0))
+    soglia = cfg["segnali"]["punti_minimi_report"]
+    da_guardare = [a for a in righe if a["punti"] >= soglia][: cfg["segnali"].get("max_report", 50)]
+    nome = os.path.join(OUT, "report-" + dt.datetime.now().strftime("%Y-%m-%d-%H%M") + ".md")
+    with open(nome, "w", encoding="utf-8") as fh:
+        fh.write(f"# Scanner Subito — {adesso}\n\n")
+        fh.write(f"Zone: {', '.join(z['nome'] for z in cfg['zone'])} · ricerche: {len(richieste) // len(cfg['zone'])} · "
+                 f"annunci letti: {len(annunci)} · nuovi: {nuovi} · da guardare (punti ≥ {soglia}): {len(da_guardare)}\n\n")
+        fh.write("Il punteggio ordina cosa guardare prima; non è una stima di valore.\n\n")
+        fh.write("| # | Punti | Prezzo | Titolo | Luogo | Categoria | Perché |\n|---|---|---|---|---|---|---|\n")
+        for i, a in enumerate(da_guardare, 1):
+            prezzo = f"{a['prezzo']:.0f} €" if a["prezzo"] else "—"
+            titolo = a["titolo"].replace("|", "/")[:70]
+            fh.write(f"| {i} | {a['punti']} | {prezzo} | [{titolo}]({a['url']}) | {a['comune']} ({a['provincia']}) | "
+                     f"{a['categoria'] or '?'} | {'; '.join(a['motivi'])[:160]} |\n")
+    with open(nome.replace(".md", ".json"), "w", encoding="utf-8") as fh:
+        json.dump(da_guardare, fh, ensure_ascii=False, indent=1)
+    print(f"Report: {nome}\nAnnunci letti {len(annunci)}, nuovi {nuovi}, da guardare {len(da_guardare)}.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
