@@ -3,6 +3,10 @@
 Il design italiano del dopoguerra è uno dei mercati in cui i venditori inconsapevoli
 abbondano: "lampada vecchia anni 70", "sedia di plastica", "tavolino anni 60".
 
+Vedi anche: `scultori-designer.md` (soprammobili e oggetti firmati: ceramiche, vetri,
+metalli e plastiche di designer italiani e scandinavi, space age) e
+`arte-africana-americana.md#Mid-century americano` (Eames, Nelson, Knoll, Bertoia).
+
 ## Nomi e aziende da riconoscere
 
 - **Designer**: Gio Ponti, Ettore Sottsass, Achille e Pier Giacomo Castiglioni,

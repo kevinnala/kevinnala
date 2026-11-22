@@ -1,5 +1,9 @@
 # Metalli: bronzi, argenti, ottone, peltro, candelieri e oggetti decorativi
 
+Vedi anche: `scultori-designer.md` per scultori e fonderie (animalier, bronzi viennesi,
+Déco, riproduzioni napoletane di Ercolano e Pompei, scultori italiani, Hagenauer, Georg
+Jensen).
+
 ## 1. Che metallo è?
 
 | Metallo | Come riconoscerlo |

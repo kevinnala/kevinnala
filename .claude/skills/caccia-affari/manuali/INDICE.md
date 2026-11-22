@@ -1,6 +1,6 @@
 # Biblioteca dei manuali (dominio pubblico)
 
-In `testi/` ci sono 26 manuali classici per collezionisti in testo completo, scaricati
+In `testi/` ci sono 34 manuali classici per collezionisti in testo completo, scaricati
 da archive.org con `scripts/scarica_manuali.py`. Sono tutti di **dominio pubblico**
 (pubblicati prima del 1930 e/o con autori morti da oltre 70 anni). In testa a ogni file:
 titolo, autore, anno, diritti, link alla scheda e al PDF.
@@ -60,6 +60,14 @@ città), poi le parole del marchio ("ancora", "corona", "spade incrociate", "ste
 | **3.000 ornamenti di tutte le epoche** (per datare un decoro) | `stili-meyer-handbook-of-ornament-1900` | inglese |
 | **Oggetti d'arte e di curiosità di ogni epoca**: cammei, tabacchiere, ventagli, avori, presepe, smalti, orologi, vetri... (Manuale Hoepli) | `oggetti-de-mauri-amatore-oggetti-arte-curiosita-1922` | italiano |
 | **Gioielli** antichi: tipi, epoche, tecniche, pietre | `gioielli-davenport-jewellery-1905` | inglese |
+| **Scultura africana**: stili per zona (Costa d'Avorio, Gabon, Congo...), primi collezionisti e mercanti parigini (dominio pubblico negli USA; fuori dagli USA solo uso personale) | `tribale-guillaume-munro-primitive-negro-sculpture-1926` | inglese |
+| **Tessuti Navajo**: telaio, tecnica, ordito continuo, lane e tinture (utile contro i tappeti zapotechi) | `nativi-matthews-navajo-weavers-1884` | inglese |
+| **Coperte e tappeti nativi** (Navajo, Pueblo, Chimayó): tipi, epoche, filati Germantown, imitazioni | `nativi-james-indian-blankets-1914` | inglese |
+| **Cestini dei nativi americani**: tecniche, fibre, tribù, con centinaia di illustrazioni descritte | `nativi-mason-aboriginal-american-basketry-1904` | inglese |
+| **Kachina hopi**: nomi, aspetto, colori e attributi dei katsina (per identificare una figura) | `nativi-fewkes-hopi-katcinas-1903` | inglese |
+| **Marchi della ceramica americana** (Rookwood, Grueby, Van Briggle, Newcomb, Weller e centinaia di fabbriche) | `ceramica-barber-marks-of-american-potters-1904` | inglese |
+| **Mobili Arts and Crafts di Gustav Stickley**: catalogo con numeri di modello, misure, marchi | `mobili-stickley-catalogue-craftsman-furniture-1910` | inglese |
+| **Barye e i bronzi animalier**: vita, opere, fusioni (anche Barbedienne), con elenco dei soggetti | `scultura-de-kay-barye-life-and-works-1889` | inglese |
 
 ## Cosa non c'è (e perché)
 
