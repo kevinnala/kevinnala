@@ -47,11 +47,14 @@ Leggi solo ciò che serve al caso:
 | Categoria non coperta: come mapparne l'ecosistema | `references/nuova-categoria.md` |
 | Manuali e banche dati da consultare | `references/manuali-consigliati.md` |
 | Biblioteca di 20 manuali storici in testo completo (marchi di ceramiche, punzoni d'argento, orologiai, pittori dell'Ottocento, numismatica, armi, tappeti, vetro, mobili) | `manuali/INDICE.md` e `manuali/testi/` |
+| Indici aperti di produttori e artisti (Met 62.000 nomi, MoMA 16.000, Tate 3.500): date di attività, ruolo, tipi di oggetto | `dati/` (guida in `dati/README.md`) |
+| Repository GitHub utili e loro attendibilità (dati di carte, API di prezzi, scanner) | `references/librerie-github.md` |
 | Manuali in PDF dell'utente (se presenti) | `manuali/` |
 
 Quando devi leggere un marchio, un punzone, una firma o il nome di una manifattura o di un
 artigiano, **cerca prima nei manuali** (`grep -n -i -C3 "<nome>" manuali/testi/*.txt`;
-l'indice dice quale libro usare) e poi in rete. Sono libri storici: affidabili per marchi,
+l'indice dice quale libro usare), poi negli indici di `dati/` (`grep -i "<nome>"
+dati/*.tsv`: date di attività e tipi di oggetto per verificare la coerenza) e poi in rete. Sono libri storici: affidabili per marchi,
 date e biografie, non per i prezzi. Cita il libro e la pagina quando lo usi.
 
 ## 1. Capire la richiesta
