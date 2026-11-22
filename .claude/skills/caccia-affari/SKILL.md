@@ -13,6 +13,20 @@ dimostrarlo con prove, non con l'entusiasmo.
 Consegna sempre una **scheda affare** (formato al passo 7) e mai una promessa:
 ogni attribuzione ha un grado di fiducia e ogni prezzo viene da vendite reali.
 
+## Le categorie sono esempi, non limiti
+
+Questa skill vale per **qualunque** oggetto con un mercato di collezionisti o di
+appassionati: monete, francobolli, militaria, penne, macchine fotografiche, strumenti
+musicali, hi-fi, computer retro, arte orientale, tappeti, icone, moda e borse di lusso,
+sneakers, vini e distillati, automobilia, minerali, manifesti, memorabilia sportiva e
+tutto il resto. Non fermarti alle categorie con una guida: se l'oggetto non è coperto,
+mappa il suo ecosistema con `references/nuova-categoria.md`.
+
+E non fermarti alle piattaforme generaliste (eBay, Catawiki, Subito, Vinted): per
+comprare e per rivendere cerca sempre anche i **canali specializzati** della categoria
+(case d'asta di settore, commercianti che comprano, marketplace di nicchia, forum,
+cataloghi di prezzi, servizi di perizia). Sono in `references/canali-specializzati/`.
+
 ## Mappa dei riferimenti
 
 Leggi solo ciò che serve al caso:
@@ -29,6 +43,8 @@ Leggi solo ciò che serve al caso:
 | Porcellane, maioliche, vetri (Murano, Gallé, Daum) | `references/categorie/ceramiche-vetri.md` |
 | Design e modernariato del Novecento | `references/categorie/design-modernariato.md` |
 | Orologi, giocattoli, videogiochi, LEGO, vinili, fumetti, libri, monete, francobolli | `references/categorie/altre-categorie.md` |
+| Canali specializzati per categoria (aste di settore, chi compra, nicchie, forum, prezzi, perizie) | `references/canali-specializzati/` (indice nel `README.md`) |
+| Categoria non coperta: come mapparne l'ecosistema | `references/nuova-categoria.md` |
 | Manuali e banche dati da consultare | `references/manuali-consigliati.md` |
 | Manuali in PDF dell'utente (se presenti) | `manuali/` |
 
@@ -58,6 +74,9 @@ Segui `references/dove-cercare.md`. In breve:
   generiche ("quadro antico", "soprammobile vecchio", "svuoto cantina", "lotto
   carte"), errori di battitura (`pokemn`, `cristofle`, `venini` scritto male),
   categorie sbagliate, foto pessime, annunci appena pubblicati.
+- Non solo i siti generalisti: anche i **mercatini dei forum** specializzati, i
+  marketplace di nicchia, i lotti invenduti o mal descritti delle piccole aste di
+  settore (elenchi per categoria in `references/canali-specializzati/`).
 - Per ogni annuncio promettente salva: link, prezzo, data, foto, testo, zona.
 - Scarta presto: un candidato vale l'approfondimento solo se il valore plausibile
   è almeno il doppio del prezzo chiesto.
@@ -100,7 +119,10 @@ punzoni in macro, firma con luce radente, base, peso, luce UV, ecc.).
 
 ## 5. Scegliere dove rivendere
 
-Segui `references/dove-rivendere.md`: per ogni oggetto confronta 2–3 canali sul
+Segui `references/dove-rivendere.md` e il file della categoria in
+`references/canali-specializzati/`. Metti sempre a confronto almeno un canale
+generalista e almeno uno specializzato (asta di settore, commerciante che compra,
+marketplace di nicchia). Per ogni oggetto confronta 2–3 canali sul
 **ricavo netto** (prezzo atteso − commissioni − spedizione/assicurazione − costi di
 perizia, grading o restauro), tenendo conto di tempi e rischio.
 
