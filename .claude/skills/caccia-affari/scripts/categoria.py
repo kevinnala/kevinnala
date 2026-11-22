@@ -47,7 +47,7 @@ def punteggio(testo, cat):
         if f" {n} " in t1 or f" {dedup(n)} " in t2:
             trovate.append(p)
             viste.add(dedup(n))
-    peso = sum(1 + n.count(" ") for n in map(norm, trovate))
+    peso = sum(1 + n.count(" ") for n in map(norm, trovate)) * cat.get("peso", 1)
     return peso, trovate
 
 

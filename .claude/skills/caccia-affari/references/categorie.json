@@ -42,7 +42,8 @@
    "rischi": [
     "costi di ritiro e smaltimento del resto"
    ],
-   "vendi": "pezzi migliori sui canali della loro categoria; il resto a lotti su Subito, Vinted, mercatini"
+   "vendi": "pezzi migliori sui canali della loro categoria; il resto a lotti su Subito, Vinted, mercatini",
+   "peso": 0.5
   },
   {
    "id": "carte-tcg",
@@ -887,7 +888,8 @@
     "canali-specializzati/orologi-tecnica-strumenti.md#Gioielli"
    ],
    "manuali": [
-    "argento-"
+    "argento-",
+    "gioielli-"
    ],
    "dati": "produttori-met",
    "verifiche": [
@@ -1277,7 +1279,9 @@
     "dove-rivendere.md#Bronzi"
    ],
    "manuali": [
-    "metalli-"
+    "metalli-",
+    "stili-melani",
+    "oggetti-de-mauri"
    ],
    "dati": "produttori-met",
    "verifiche": [
@@ -1393,16 +1397,31 @@
     "faience",
     "porzellan",
     "n coronata",
-    "giglio capodimonte"
+    "giglio capodimonte",
+    "vietri",
+    "ceramica vietri",
+    "vietri sul mare",
+    "dolker",
+    "dölker",
+    "kowaliska",
+    "ics vietri",
+    "gambone",
+    "solimene",
+    "cerreto sannita",
+    "san lorenzello",
+    "ariano irpino",
+    "giustiniani"
    ],
    "leggi": [
     "categorie/ceramiche-vetri.md#Porcellana, maiolica",
     "categorie/ceramiche-vetri.md#Marchi",
     "categorie/ceramiche-vetri.md#Condizione",
-    "dove-rivendere.md#Ceramiche"
+    "dove-rivendere.md#Ceramiche",
+    "categorie/epoche-e-oggetti-campani.md#Ceramica di Vietri"
    ],
    "manuali": [
-    "ceramica-"
+    "ceramica-",
+    "oggetti-de-mauri"
    ],
    "dati": "produttori-met",
    "verifiche": [
@@ -1577,10 +1596,12 @@
    ],
    "leggi": [
     "categorie/altre-categorie.md#Arredi antichi",
-    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Mobili"
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Mobili",
+    "categorie/epoche-e-oggetti-campani.md#Guida rapida alle epoche"
    ],
    "manuali": [
-    "mobili-"
+    "mobili-",
+    "stili-melani"
    ],
    "dati": "produttori-met",
    "verifiche": [
@@ -1999,6 +2020,286 @@
     "fossili ricostruiti o falsi"
    ],
    "vendi": "Bonhams/Christie's/Sotheby's Natural History per i top; mostre scambio"
+  },
+  {
+   "id": "presepe",
+   "nome": "Presepe napoletano (pastori e finimenti)",
+   "parole": [
+    "presepe",
+    "presepio",
+    "presepe napoletano",
+    "pastori",
+    "pastore presepe",
+    "pastori antichi",
+    "pastori settecento",
+    "pastori 700",
+    "san gregorio armeno",
+    "figure presepe",
+    "finimenti",
+    "re magi",
+    "natività antica"
+   ],
+   "leggi": [
+    "categorie/epoche-e-oggetti-campani.md#Presepe napoletano"
+   ],
+   "manuali": [
+    "oggetti-de-mauri"
+   ],
+   "dati": "",
+   "verifiche": [
+    "testa e mani in terracotta dipinta, occhi di vetro, corpo in stoppa e fil di ferro, abiti in tessuti d'epoca = antico",
+    "tutto in terracotta o resina, abiti incollati = moderno",
+    "attribuzioni ai maestri solo con parere di specialista"
+   ],
+   "foto": [
+    "testa e mani da vicino",
+    "sotto gli abiti",
+    "piedi e base"
+   ],
+   "rischi": [
+    "pastori moderni invecchiati"
+   ],
+   "vendi": "aste di arte presepiale (Napoli, Roma), Catawiki, collezionisti; modesti su eBay e Subito"
+  },
+  {
+   "id": "corallo-cammei",
+   "nome": "Corallo e cammei (Torre del Greco)",
+   "parole": [
+    "corallo",
+    "coralli",
+    "collana corallo",
+    "corallo rosso",
+    "pelle d'angelo",
+    "sangue di bue",
+    "cammeo",
+    "cammei",
+    "cameo",
+    "cammeo conchiglia",
+    "cammeo lava",
+    "lava vesuviana",
+    "sardonica",
+    "torre del greco"
+   ],
+   "leggi": [
+    "categorie/epoche-e-oggetti-campani.md#Corallo e cammei",
+    "categorie/altre-categorie.md#Gioielli"
+   ],
+   "manuali": [
+    "oggetti-de-mauri",
+    "gioielli-"
+   ],
+   "dati": "",
+   "verifiche": [
+    "corallo vero: venature parallele, freddo, colore non uniforme; falsi in plastica, vetro, bambù tinto",
+    "cammeo: materiale (conchiglia, pietra dura, lava, corallo) e qualità dell'incisione",
+    "montatura: oro e punzoni antichi, chiusura a C"
+   ],
+   "foto": [
+    "incisione in macro",
+    "retro della montatura e punzoni",
+    "grani del corallo in macro"
+   ],
+   "rischi": [
+    "corallo ricostruito o tinto"
+   ],
+   "vendi": "aste di gioielli, commercianti di Torre del Greco, Catawiki, eBay"
+  },
+  {
+   "id": "arte-sacra",
+   "nome": "Arte sacra ed ex voto",
+   "parole": [
+    "ex voto",
+    "exvoto",
+    "reliquiario",
+    "reliquia",
+    "ostensorio",
+    "calice",
+    "acquasantiera",
+    "crocifisso antico",
+    "statua santo",
+    "busto ligneo",
+    "santo in legno",
+    "paliotto",
+    "pianeta ricamata",
+    "paramenti sacri",
+    "corona argento madonna",
+    "cuore ex voto",
+    "vfga",
+    "arte sacra"
+   ],
+   "leggi": [
+    "categorie/epoche-e-oggetti-campani.md#Arte sacra",
+    "legale-fiscale.md#Da non comprare"
+   ],
+   "manuali": [
+    "argento-rosenberg",
+    "stili-melani"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "provenienza: timbri di parrocchie o confraternite, numeri d'inventario = controlla banca dati Carabinieri TPC",
+    "argenti: punzoni (NAP coronata per Napoli) e peso",
+    "ex voto dipinti: tavolette popolari con V.F.G.A."
+   ],
+   "foto": [
+    "punzoni",
+    "retro e base",
+    "eventuali timbri o etichette"
+   ],
+   "rischi": [
+    "beni rubati a chiese",
+    "copie invecchiate"
+   ],
+   "vendi": "aste di arte sacra e argenti, antiquari specializzati"
+  },
+  {
+   "id": "foto-storiche",
+   "nome": "Fotografie d'epoca",
+   "parole": [
+    "fotografia antica",
+    "fotografie antiche",
+    "foto antiche",
+    "foto d'epoca",
+    "fotografie d'epoca",
+    "albumina",
+    "dagherrotipo",
+    "ambrotipo",
+    "ferrotipo",
+    "carte de visite",
+    "cdv",
+    "sommer",
+    "giorgio sommer",
+    "alinari",
+    "brogi",
+    "album fotografico antico",
+    "foto vesuvio",
+    "foto pompei"
+   ],
+   "leggi": [
+    "categorie/epoche-e-oggetti-campani.md#Fotografie"
+   ],
+   "manuali": [],
+   "dati": "artisti",
+   "verifiche": [
+    "tecnica (dagherrotipo, albumina, carte de visite...) e montaggio su cartoncino",
+    "fotografo: nome e numero nel negativo o timbro sul retro (Sommer, Rive, Alinari, Brogi)",
+    "stampa d'epoca o ristampa (lente: retino = riproduzione)"
+   ],
+   "foto": [
+    "fronte e retro del cartoncino",
+    "firma o numero nel negativo"
+   ],
+   "rischi": [
+    "ristampe moderne"
+   ],
+   "vendi": "aste di fotografia, Catawiki, eBay internazionale, Delcampe"
+  },
+  {
+   "id": "vertu",
+   "nome": "Piccoli oggetti di pregio (tabacchiere, portasigarette, ventagli, bastoni)",
+   "parole": [
+    "tabacchiera",
+    "tabacchiere",
+    "portasigarette",
+    "portacipria",
+    "carnet de bal",
+    "ventaglio",
+    "ventagli",
+    "bastone da passeggio",
+    "bastone pomo",
+    "pomo argento",
+    "sigillo antico",
+    "calamaio",
+    "temperino antico",
+    "astuccio argento",
+    "bomboniera argento antica",
+    "portamonete argento",
+    "borsetta maglia argento"
+   ],
+   "leggi": [
+    "categorie/epoche-e-oggetti-campani.md#Piccoli oggetti",
+    "categorie/metalli-bronzi-argenti.md#Argenti"
+   ],
+   "manuali": [
+    "oggetti-de-mauri",
+    "argento-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "punzoni (argentiere, città) e materiali",
+    "qualità di smalti e intagli",
+    "avorio o tartaruga: CITES"
+   ],
+   "foto": [
+    "punzoni",
+    "interno",
+    "dettagli di smalto o intaglio"
+   ],
+   "rischi": [
+    "placcati",
+    "avorio"
+   ],
+   "vendi": "aste di argenti e oggetti d'arte, Catawiki, eBay internazionale"
+  },
+  {
+   "id": "stili-epoche",
+   "nome": "Oggetto descritto solo dallo stile o dall'epoca",
+   "parole": [
+    "barocco",
+    "rococo",
+    "luigi xv",
+    "luigi xvi",
+    "impero",
+    "stile impero",
+    "direttorio",
+    "restaurazione",
+    "carlo x",
+    "biedermeier",
+    "luigi filippo",
+    "napoleone iii",
+    "eclettismo",
+    "liberty",
+    "art nouveau",
+    "art deco",
+    "deco",
+    "decò",
+    "settecento",
+    "700",
+    "ottocento",
+    "fine 800",
+    "primo 900",
+    "primi 900",
+    "inizio 900",
+    "anni 20",
+    "anni 30",
+    "anni 40",
+    "neoclassico",
+    "epoca borbonica",
+    "borbonico"
+   ],
+   "leggi": [
+    "categorie/epoche-e-oggetti-campani.md#Guida rapida alle epoche",
+    "metodo-perizia.md#Indizi di epoca"
+   ],
+   "manuali": [
+    "stili-",
+    "oggetti-de-mauri"
+   ],
+   "dati": "",
+   "verifiche": [
+    "lo stile dice il modello, non l'epoca: verifica costruzione, materiali e usura",
+    "se è ripreso in stile vale molto meno dell'originale",
+    "rilancia categoria.py con il tipo di oggetto (mobile, bronzo, ceramica...)"
+   ],
+   "foto": [
+    "retro, fondo, interno",
+    "dettagli di costruzione"
+   ],
+   "rischi": [
+    "oggetti 'in stile' venduti come d'epoca"
+   ],
+   "vendi": "secondo il tipo di oggetto",
+   "peso": 0.5
   }
  ]
 }

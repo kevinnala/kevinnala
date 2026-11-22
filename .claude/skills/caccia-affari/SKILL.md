@@ -19,7 +19,7 @@ ogni attribuzione ha un grado di fiducia e ogni prezzo viene da vendite reali.
 python3 .claude/skills/caccia-affari/scripts/categoria.py "<titolo e descrizione dell'annuncio>"
 ```
 
-Lo script riconosce la categoria (42, con sinonimi in 4 lingue ed errori di battitura) e
+Lo script riconosce la categoria (48, con sinonimi in 4 lingue ed errori di battitura) e
 stampa la scheda essenziale: verifiche chiave, foto da chiedere, rischi, dove vendere, e
 **le sole righe dei file da leggere** (`file:inizio-fine`), più i manuali e i dati da
 interrogare. `--estratto` stampa direttamente il testo di quelle sezioni.
@@ -74,10 +74,11 @@ Da usare solo se lo script del passo 0 non basta:
 | Porcellane, maioliche, vetri (Murano, Gallé, Daum) | `references/categorie/ceramiche-vetri.md` |
 | Design e modernariato del Novecento | `references/categorie/design-modernariato.md` |
 | Orologi, giocattoli, videogiochi, LEGO, vinili, fumetti, libri, monete, francobolli | `references/categorie/altre-categorie.md` |
+| Riconoscere le epoche dagli stili; presepe napoletano, corallo e cammei, Vietri e maiolica campana, arte sacra, fotografie d'epoca, piccoli oggetti di pregio | `references/categorie/epoche-e-oggetti-campani.md` |
 | Canali specializzati per categoria (aste di settore, chi compra, nicchie, forum, prezzi, perizie) | `references/canali-specializzati/` (indice nel `README.md`) |
 | Categoria non coperta: come mapparne l'ecosistema | `references/nuova-categoria.md` |
 | Manuali e banche dati da consultare | `references/manuali-consigliati.md` |
-| Biblioteca di 20 manuali storici in testo completo (marchi di ceramiche, punzoni d'argento, orologiai, pittori dell'Ottocento, numismatica, armi, tappeti, vetro, mobili) | `manuali/INDICE.md` e `manuali/testi/` |
+| Biblioteca di 26 manuali storici in testo completo (stili ed epoche, oggetti d'arte e curiosità, marchi di ceramiche, punzoni d'argento, gioielli, orologiai, pittori dell'Ottocento, numismatica, armi, tappeti, vetro, mobili) | `manuali/INDICE.md` e `manuali/testi/` |
 | Indici aperti di produttori e artisti (Met 62.000 nomi, MoMA 16.000, Tate 3.500): date di attività, ruolo, tipi di oggetto | `dati/` (guida in `dati/README.md`) |
 | Repository GitHub utili e loro attendibilità (dati di carte, API di prezzi, scanner) | `references/librerie-github.md` |
 | Manuali in PDF dell'utente (se presenti) | `manuali/` |

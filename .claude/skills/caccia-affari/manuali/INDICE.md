@@ -1,6 +1,6 @@
 # Biblioteca dei manuali (dominio pubblico)
 
-In `testi/` ci sono 20 manuali classici per collezionisti in testo completo, scaricati
+In `testi/` ci sono 26 manuali classici per collezionisti in testo completo, scaricati
 da archive.org con `scripts/scarica_manuali.py`. Sono tutti di **dominio pubblico**
 (pubblicati prima del 1930 e/o con autori morti da oltre 70 anni). In testa a ogni file:
 titolo, autore, anno, diritti, link alla scheda e al PDF.
@@ -54,6 +54,12 @@ città), poi le parole del marchio ("ancora", "corona", "spade incrociate", "ste
 | Termini numismatici in 7 lingue (per leggere cataloghi esteri) | `numismatica-ambrosoli-vocabolarietto-7-lingue-1897` | più lingue |
 | **Monete romane** (Manuale Hoepli) | `numismatica-gnecchi-monete-romane-1896` | italiano |
 | **Armi antiche**: tipi, epoche, armaioli, marchi (Manuale Hoepli) | `armi-gelli-guida-raccoglitore-armi-antiche-1900` | italiano |
+| **Riconoscere gli stili e le epoche** di mobili, ferri, bronzi e altri metalli (Manuale Hoepli) | `stili-melani-distinguere-stili-legni-metalli-1919` | italiano |
+| Riconoscere gli stili: architettura, scultura applicata, arti decorative (Manuale Hoepli) | `stili-melani-distinguere-stili-architettura-decorativa-1918` | italiano |
+| Arte decorativa antica e moderna: ornati, materiali, tecniche per epoca | `stili-melani-manuale-arte-decorativa-1907` | italiano |
+| **3.000 ornamenti di tutte le epoche** (per datare un decoro) | `stili-meyer-handbook-of-ornament-1900` | inglese |
+| **Oggetti d'arte e di curiosità di ogni epoca**: cammei, tabacchiere, ventagli, avori, presepe, smalti, orologi, vetri... (Manuale Hoepli) | `oggetti-de-mauri-amatore-oggetti-arte-curiosita-1922` | italiano |
+| **Gioielli** antichi: tipi, epoche, tecniche, pietre | `gioielli-davenport-jewellery-1905` | inglese |
 
 ## Cosa non c'è (e perché)
 
