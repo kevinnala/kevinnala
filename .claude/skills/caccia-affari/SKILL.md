@@ -26,7 +26,7 @@ ogni attribuzione ha un grado di fiducia e ogni prezzo viene da vendite reali.
 python3 .claude/skills/caccia-affari/scripts/categoria.py "<titolo e descrizione dell'annuncio>"
 ```
 
-Lo script riconosce la categoria (55, con sinonimi in 4 lingue ed errori di battitura) e
+Lo script riconosce la categoria (56, con sinonimi in 4 lingue ed errori di battitura) e
 stampa la scheda essenziale: verifiche chiave, foto da chiedere, rischi, dove vendere, e
 **le sole righe dei file da leggere** (`file:inizio-fine`), più i manuali e i dati da
 interrogare. `--estratto` stampa direttamente il testo di quelle sezioni.
@@ -83,6 +83,7 @@ Da usare solo se lo script del passo 0 non basta:
 | Orologi, giocattoli, videogiochi, LEGO, vinili, fumetti, libri, monete, francobolli | `references/categorie/altre-categorie.md` |
 | Il criterio del valore di rivendita; manifatture e marchi che fanno prezzo (Italia e mondo); riconoscere le epoche dagli stili; esempi di specialità regionali (presepe, corallo e cammei, Vietri, arte sacra, fotografie d'epoca); piccoli oggetti di pregio | `references/categorie/epoche-e-stili.md` |
 | Arte africana e oceanica, nativi nordamericani (Navajo, argento e turchese, Pueblo, kachina, inuit), argento di Taxco, antiquariato e design USA (Tiffany Studios, art pottery, Stickley, Eames, Zippo, insegne); cosa è vietato | `references/categorie/arte-africana-americana.md` |
+| Memorabilia di cinema, TV, fumetti e videogiochi: statue in resina (Sideshow, Hot Toys, Pixi, Leblon-Delienne, Attakus, Artifex), Funko, repliche di scena, Disney da collezione; tirature, certificati, bootleg, dove rivendere | `references/categorie/memorabilia-pop.md` |
 | Scultori e bronzi firmati (animalier, viennesi, Déco, fonderie, riproduzioni napoletane, scultori italiani e multipli) e soprammobili di designer e manifatture italiane e internazionali | `references/categorie/scultori-designer.md` |
 | Canali specializzati per categoria (aste di settore, chi compra, nicchie, forum, prezzi, perizie) | `references/canali-specializzati/` (indice nel `README.md`) |
 | Categoria non coperta: come mapparne l'ecosistema | `references/nuova-categoria.md` |
