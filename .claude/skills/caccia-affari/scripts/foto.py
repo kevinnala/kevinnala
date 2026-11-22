@@ -16,6 +16,20 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(QUI, "..", "risultati", "foto")
 
 
+def converti_in_jpeg(percorso):
+    """Alcune foto arrivano in AVIF anche se si chiede JPEG: convertile, se Pillow lo permette."""
+    with open(percorso, "rb") as fh:
+        testa = fh.read(12)
+    if testa[4:8] != b"ftyp":
+        return
+    try:
+        from PIL import Image
+        with Image.open(percorso) as im:
+            im.convert("RGB").save(percorso, "JPEG", quality=90)
+    except Exception as e:  # noqa: BLE001
+        print("  foto in formato AVIF non convertita:", percorso, e)
+
+
 def main(argv):
     massimo = int(argv[argv.index("--max-foto") + 1]) if "--max-foto" in argv else 6
     urls = [a for a in argv if a.startswith("http")]
@@ -35,9 +49,10 @@ def main(argv):
         for i, u in enumerate(a["foto"][:massimo], 1):
             dest = os.path.join(cartella, f"{i}.jpg")
             try:
-                req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
+                req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0", "Accept": "image/jpeg,image/*;q=0.5"})
                 with urllib.request.urlopen(req, timeout=60) as r, open(dest, "wb") as fh:
                     fh.write(r.read())
+                converti_in_jpeg(dest)
                 salvate.append(dest)
             except Exception as e:  # noqa: BLE001
                 print("  foto non scaricata:", u, e)

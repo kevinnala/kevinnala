@@ -8,6 +8,7 @@ Uso:
   scanner.py --max 10             # solo le prime 10 ricerche (prova veloce)
   scanner.py --anche-visti        # rimetti nel report anche gli annunci già visti
   scanner.py --config altro.json  # altra configurazione
+  scanner.py --da-archivio        # rifà il report dagli annunci già salvati (dopo aver cambiato i segnali)
 
 Configurazione: scanner_config.json (zone, ricerche, segnali). Archivio: risultati/annunci.sqlite.
 Report: risultati/report-AAAA-MM-GG-HHMM.md (i migliori in cima).
@@ -74,11 +75,21 @@ def punteggio(a, cat, cfg):
     s = cfg["segnali"]
     testo = f" {norm(a['titolo'])} {norm(a['testo'])} "
     punti, motivi = 0, []
-    if cat:
-        punti += 2
-        motivi.append(f"categoria: {cat[0][1]['id']}")
+    if a.get("categoria_subito") in s.get("categorie_subito_escluse", []):
+        return -99, [f"categoria Subito esclusa: {a['categoria_subito']}"]
+    vere = [x for x in cat if x[1]["id"] != "lotto-misto"]
+    if vere:
+        forza = vere[0][0]
+        punti += 1 + min(forza, 4)
+        motivi.append(f"categoria: {vere[0][1]['id']} (forza {forza})")
+    elif cat:
+        motivi.append("lotto misto")
     else:
-        punti -= 1
+        return -99, ["nessuna categoria da collezione"]
+    trovati_valore = [w for w in s.get("valore", []) if f" {norm(w)} " in testo]
+    if trovati_valore:
+        punti += min(len(trovati_valore), 3)
+        motivi.append("valore: " + ", ".join(trovati_valore[:4]))
     if a["azienda"]:
         punti -= 2
         motivi.append("venditore professionale")
@@ -134,9 +145,14 @@ def main(argv):
     cfg = carica_config(cfg_path)
     dati = json.load(open(router.CATALOGO, encoding="utf-8"))
     richieste = costruisci_richieste(cfg, massimo)
-    sys.stderr.write(f"{len(richieste)} pagine da scaricare (ritmo prudente, qualche minuto)...\n")
-    annunci = scarica(richieste)
     db = apri_db()
+    if "--da-archivio" in argv:
+        # ricalcola il report dagli annunci già salvati, senza scaricare
+        annunci = [json.loads(j) for (j,) in db.execute("SELECT json FROM annunci")]
+        db.execute("DELETE FROM annunci")
+    else:
+        sys.stderr.write(f"{len(richieste)} pagine da scaricare (ritmo prudente, qualche minuto)...\n")
+        annunci = scarica(richieste)
     visti = {r[0] for r in db.execute("SELECT id FROM annunci")}
     adesso = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     nuovi, righe = 0, []
