@@ -431,7 +431,7 @@
  "telegram": {
   "chat_id": "950034398",
   "punti_minimi": 9,
-  "massimo_annunci": 15,
+  "massimo_annunci": 30,
   "_nota": "il token del bot va nella variabile d'ambiente TELEGRAM_BOT_TOKEN, mai qui"
  }
 }

@@ -118,6 +118,39 @@ visti, li smista con `categoria.py`, li ordina per probabilità di affare e scri
 `risultati/report-*.md` (📦 spedibile, 🤝 solo ritiro). Il punteggio ordina, non stima:
 la perizia si fa sui primi della lista con le foto (`foto.py`).
 
+### Giro completo: OGNI volta che si lancia lo scanner (regola dell'utente)
+
+L'utente vuole a ogni giro **le perizie di almeno 30 annunci nuovi su Telegram**, non solo
+la lista. Non ripropone mai un annuncio già periziato e impara da ciò che l'utente compra e
+vende. Passi, in quest'ordine, senza saltarne:
+
+```bash
+S=.claude/skills/caccia-affari/scripts
+python3 $S/telegram_bot.py                 # 1. legge i messaggi dell'utente (preso/venduto/note) e risponde
+python3 $S/scanner.py                      # 2. scanner (salta visti e periziati; bonus alle categorie che hanno reso)
+python3 $S/perizie.py prepara --n 30       # 3. 30 candidati nuovi + provini delle foto + LEZIONI dagli esiti
+#    4. Claude guarda ogni provino (Read) e il testo, e scrive risultati/perizie/perizie.json
+#       (formato: `perizie.py modello`), applicando la skill e le lezioni stampate al passo 3
+python3 $S/perizie.py invia .claude/skills/caccia-affari/risultati/perizie/perizie.json   # 5. Telegram + memoria
+#    6. commit e push di .claude/skills/caccia-affari/memoria/ (senza push la memoria si perde)
+```
+
+- **Perizia per ogni annuncio** (30): verdetto COMPRA / TRATTA / VERIFICA PRIMA / LASCIA,
+  valore `[prudente, probabile, ottimista]`; per i non-LASCIA anche cosa è, fiducia, dove
+  vendere con netto, verifiche prima di pagare, offerta e massimo. Per i LASCIA basta una
+  riga di motivo. Triage onesto: se il giro è debole, dillo (molti LASCIA vanno bene).
+- **Lezioni** (`memoria.py lezioni`): se per una categoria il rapporto venduto/stima è sotto
+  0,85 abbassa le stime, sopra 1,2 alzale; usa il canale che ha reso di più; leggi le note
+  libere dell'utente prima di periziare.
+- **Foto**: Vinted (images1.vinted.net) e Wallapop (cdn.wallapop.com) possono essere bloccati
+  dalla rete dell'ambiente: in quel caso perizia dal testo, verdetto al massimo VERIFICA PRIMA.
+- **Memoria** (`memoria/`, nel repository): `visti.txt` (annunci già passati),
+  `periziati.jsonl` (perizie con numero stabile #N), `esiti.jsonl` (messaggi dell'utente),
+  `stato.json` (contatore e offset Telegram). `risultati/` invece è locale e si perde.
+- **Comandi Telegram dell'utente** (letti al passo 1; il bot non è sempre acceso):
+  `/preso #N prezzo`, `/venduto #N prezzo canale`, `/scartato #N motivo`, `/perso #N`,
+  `/nota testo`, `/bilancio`, `/lezioni`, `/aiuto`. Un testo libero diventa una nota.
+
 ## 1. Capire la richiesta
 
 Tre modalità; riconosci quale e chiedi in un solo messaggio ciò che manca:

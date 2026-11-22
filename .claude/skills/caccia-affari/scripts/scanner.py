@@ -8,10 +8,12 @@ Uso:
   scanner.py --max 10             # solo le prime 10 ricerche (prova veloce)
   scanner.py --anche-visti        # rimetti nel report anche gli annunci già visti
   scanner.py --config altro.json  # altra configurazione
-  scanner.py --telegram           # alla fine manda la lista su Telegram (vedi notifica_telegram.py)
+  scanner.py --telegram           # alla fine manda la lista su Telegram (vedi notifica_telegram.py);
+                                  # di norma non serve: dopo lo scanner si mandano le perizie (perizie.py)
   scanner.py --da-archivio        # rifà il report dagli annunci già salvati (dopo aver cambiato i segnali)
 
-Configurazione: scanner_config.json (zone, ricerche, segnali). Archivio: risultati/annunci.sqlite.
+Configurazione: scanner_config.json (zone, ricerche, segnali). Archivio: risultati/annunci.sqlite
+(locale) + memoria/visti.txt e memoria/periziati.jsonl (nel repository: valgono anche nelle sessioni nuove).
 Report: risultati/report-AAAA-MM-GG-HHMM.md (i migliori in cima).
 
 Il punteggio NON è una stima di valore: ordina gli annunci da guardare per primi.
@@ -31,6 +33,7 @@ RADICE = os.path.normpath(os.path.join(QUI, ".."))
 sys.path.insert(0, QUI)
 import categoria as router  # noqa: E402
 import fonti_extra  # noqa: E402
+import memoria  # noqa: E402
 
 OUT = os.path.join(RADICE, "risultati")
 
@@ -80,8 +83,9 @@ def norm(s):
     return router.norm(s or "")
 
 
-def punteggio(a, cat, cfg):
-    """Ritorna (punti, motivi). Più alto = da guardare prima."""
+def punteggio(a, cat, cfg, bonus=None):
+    """Ritorna (punti, motivi). Più alto = da guardare prima.
+    bonus: {categoria: punti} imparati dagli esiti dell'utente (memoria.lezioni)."""
     s = cfg["segnali"]
     testo = f" {norm(a['titolo'])} {norm(a['testo'])} "
     punti, motivi = 0, []
@@ -92,6 +96,10 @@ def punteggio(a, cat, cfg):
         forza = vere[0][0]
         punti += 1 + min(forza, 4)
         motivi.append(f"categoria: {vere[0][1]['id']} (forza {forza})")
+        b = (bonus or {}).get(vere[0][1]["id"])
+        if b:
+            punti += b
+            motivi.append(f"esiti passati {b:+d}")
     elif cat:
         motivi.append("lotto misto")
     else:
@@ -178,7 +186,14 @@ def main(argv):
     for a in annunci:  # lo stesso annuncio può uscire da più ricerche o fonti
         unici.setdefault(a["id"], a)
     annunci = list(unici.values())
-    visti = {r[0] for r in db.execute("SELECT id FROM annunci")}
+    # già visti: archivio locale + memoria nel repository (sopravvive alle sessioni) + già periziati
+    in_archivio = {r[0] for r in db.execute("SELECT id FROM annunci")}
+    # già visti: archivio locale + memoria nel repository (vale anche nelle sessioni nuove) + già periziati.
+    # Con --da-archivio l'archivio è appena stato svuotato e visti.txt li conterrebbe tutti: si escludono solo i periziati.
+    visti = in_archivio | memoria.ids_periziati()
+    if "--da-archivio" not in argv:
+        visti |= memoria.visti()
+    bonus = memoria.lezioni(testo=False)["bonus"]
     adesso = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     nuovi, righe = 0, []
     ritiro = set(cfg.get("province_ritiro", []))
@@ -195,18 +210,20 @@ def main(argv):
             scartati_distanza += 1  # solo ritiro a mano, ma troppo lontano
             continue
         cat = router.classifica(f"{a['titolo']} {a['testo']}", dati)
-        punti, motivi = punteggio(a, cat, cfg)
+        punti, motivi = punteggio(a, cat, cfg, bonus)
         a["categoria"] = cat[0][1]["id"] if cat else ""
         a["punti"], a["motivi"] = punti, motivi
-        if a["id"] not in visti:
-            nuovi += 1
+        if a["id"] not in in_archivio:
             db.execute("INSERT INTO annunci VALUES (?,?,?,?,?,?,?,?,?,?)",
                        (a["id"], adesso, a["titolo"], a["prezzo"], a["url"], a["comune"], a["provincia"],
                         a["categoria"], punti, json.dumps(a, ensure_ascii=False)))
+        if a["id"] not in visti:
+            nuovi += 1
             righe.append(a)
         elif "--anche-visti" in argv:
             righe.append(a)
     db.commit()
+    memoria.aggiungi_visti([a["id"] for a in annunci])
     righe.sort(key=lambda x: (-x["punti"], x["prezzo"] or 0))
     soglia = cfg["segnali"]["punti_minimi_report"]
     da_guardare = [a for a in righe if a["punti"] >= soglia][: cfg["segnali"].get("max_report", 50)]

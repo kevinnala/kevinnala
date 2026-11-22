@@ -35,6 +35,14 @@ def api(metodo, **params):
         return json.load(r)
 
 
+def chat_id():
+    cfg = json.load(open(os.path.join(QUI, "scanner_config.json"), encoding="utf-8"))
+    cid = os.environ.get("TELEGRAM_CHAT_ID") or cfg.get("telegram", {}).get("chat_id")
+    if not cid:
+        sys.exit("Manca il chat id: lancia notifica_telegram.py --chat-id")
+    return cid
+
+
 def messaggi(annunci, intestazione, massimo_car=3900):
     blocchi, cur = [], intestazione
     for i, a in enumerate(annunci, 1):
