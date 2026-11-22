@@ -161,6 +161,15 @@ python3 $S/perizie.py invia .claude/skills/caccia-affari/risultati/perizie/periz
 - **Siti che rifiutano i programmi automatici** (Asteannunci, Mercatinousato, Facebook): non si
   aggirano i blocchi. Facebook Marketplace solo dal browser dell'utente, se collega il suo computer.
 
+- **REGOLA FISSA DELL'UTENTE: l'affare vero è il venditore che non ha capito cosa ha in mano.**
+  Nelle griglie e nel report scegli per primi gli annunci dove il venditore: non nomina
+  autore/marchio/manifattura che invece si vedono in foto; sbaglia materiale (chiama "metallo"
+  l'argento, "vetro" il Murano firmato, "statuina" un bronzo), epoca o categoria; scrive
+  "della nonna", "eredità", "svuoto cantina", "non so cosa sia"; mette un prezzo tondo e basso o
+  simbolico; fa foto pessime. Scarta o metti in fondo chi conosce già il valore (nomina il marchio
+  e il modello giusto, scrive "raro", cita quotazioni, mette prezzi di mercato, è un
+  commerciante). Un COMPRA o TRATTA deve avere sempre il campo `errore_venditore` compilato:
+  cosa non ha capito il venditore. Se non c'è un errore del venditore, di solito non c'è affare.
 - **Perizia per ogni annuncio** (30): verdetto COMPRA / TRATTA / VERIFICA PRIMA / LASCIA,
   valore `[prudente, probabile, ottimista]`; per i non-LASCIA anche cosa è, fiducia, dove
   vendere con netto, verifiche prima di pagare, offerta e massimo. Per i LASCIA basta una

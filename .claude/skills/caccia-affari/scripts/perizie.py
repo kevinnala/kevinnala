@@ -177,6 +177,8 @@ def controlla(perizie, candidati):
             for campo in ("cosa", "dove", "verifiche", "offerta"):
                 if not p.get(campo):
                     errori.append(f"{p['id']}: manca '{campo}'")
+        if p.get("verdetto") in ("COMPRA", "TRATTA") and not p.get("errore_venditore"):
+            errori.append(f"{p['id']}: per COMPRA/TRATTA serve 'errore_venditore' (cosa non ha capito il venditore)")
         # completa con i dati dell'annuncio
         c = per_id.get(p.get("id"), {})
         for k in ("titolo", "prezzo", "url", "fonte", "luogo", "spedizione", "categoria", "extra"):
