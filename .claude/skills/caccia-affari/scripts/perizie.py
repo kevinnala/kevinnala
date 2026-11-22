@@ -2,7 +2,10 @@
 """Perizie dopo ogni giro dello scanner: prepara i candidati, poi invia le schede su Telegram
 e le ricorda (memoria/periziati.jsonl) così il giro dopo non le ripropone.
 
-  perizie.py prepara [--n 30]        # sceglie i primi N annunci NON ancora periziati dall'ultimo report,
+  perizie.py prepara [--n 30] [--scelti]
+                                     # --scelti: prima gli annunci scelti nelle griglie di esplora.py
+                                     # (risultati/esplora/scelti.txt), poi completa fino a N con i primi
+                                     # NON ancora periziati dell'ultimo report dello scanner per parole;
                                      # scarica le foto e fa un provino per annuncio; scrive
                                      # risultati/perizie/da_periziare.json e stampa le lezioni dagli esiti
   perizie.py modello                 # stampa un esempio del file perizie.json da compilare
@@ -17,6 +20,7 @@ La perizia la scrive Claude guardando foto e testo con la skill caccia-affari: l
 import html
 import json
 import os
+import re
 import sys
 import urllib.request
 
@@ -88,10 +92,35 @@ def provino(files, dest, larghezza=420):
     return True
 
 
-def prepara(n, max_foto=4):
-    annunci, nome = ultimo_report()
+def da_esplora():
+    """Annunci scelti da Claude nelle griglie di esplora.py (risultati/esplora/scelti.txt)."""
+    f_cand = os.path.join(RIS, "esplora", "candidati.json")
+    f_scelti = os.path.join(RIS, "esplora", "scelti.txt")
+    if not (os.path.exists(f_cand) and os.path.exists(f_scelti)):
+        return []
+    with open(f_cand, encoding="utf-8") as fh:
+        cand = json.load(fh)
+    per_k = {str(a["k"]): a for a in cand}
+    per_id = {a["id"]: a for a in cand}
+    with open(f_scelti, encoding="utf-8") as fh:
+        voci = re.findall(r"[#\w-]+", fh.read())
+    out = []
+    for v in voci:
+        a = per_k.get(v.lstrip("#")) or per_id.get(v)
+        if a and a not in out:
+            out.append(a)
+    return out
+
+
+def prepara(n, max_foto=4, con_scelti=False):
     gia = memoria.ids_periziati()
-    scelti = [a for a in annunci if a["id"] not in gia][:n]
+    scelti = [a for a in da_esplora() if a["id"] not in gia] if con_scelti else []
+    try:
+        annunci, nome = ultimo_report()
+    except SystemExit:
+        annunci, nome = [], "nessun report dello scanner per parole"
+    presi = {a["id"] for a in scelti}
+    scelti += [a for a in annunci if a["id"] not in gia and a["id"] not in presi][: max(0, n - len(scelti))]
     os.makedirs(DIR, exist_ok=True)
     out = []
     for a in scelti:
@@ -108,11 +137,14 @@ def prepara(n, max_foto=4):
             "fonte": a.get("fonte") or "Subito", "luogo": f"{a.get('comune') or ''} ({a.get('provincia') or ''})".strip(),
             "spedizione": a.get("spedizione"), "categoria": a.get("categoria"), "punti": a.get("punti"),
             "condizione": a.get("condizione"), "data": a.get("data"), "testo": (a.get("testo") or "")[:1500],
+            "origine": "griglie" if a.get("k") else "parole",
+            "extra": {k: a[k] for k in ("termine", "tribunale", "prezzo_con_oneri") if a.get(k)},
             "provino": prov if provino(files, prov) else None, "n_foto_scaricate": len(files),
         })
     with open(F_CANDIDATI, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=1)
-    print(f"Report: {os.path.basename(nome)} · già periziati esclusi: {len(gia)} · candidati: {len(out)}")
+    print(f"Report: {os.path.basename(nome)} · già periziati esclusi: {len(gia)} · candidati: {len(out)} "
+          f"(dalle griglie: {sum(c['origine'] == 'griglie' for c in out)})")
     print(f"Candidati: {F_CANDIDATI}")
     for i, c in enumerate(out, 1):
         print(f"{i:2}. [{c['id']}] {c['prezzo']} € · {c['titolo'][:60]} · {c['categoria']} · provino: {c['provino'] or 'nessuna foto'}")
@@ -140,7 +172,7 @@ def controlla(perizie, candidati):
                     errori.append(f"{p['id']}: manca '{campo}'")
         # completa con i dati dell'annuncio
         c = per_id.get(p.get("id"), {})
-        for k in ("titolo", "prezzo", "url", "fonte", "luogo", "spedizione", "categoria"):
+        for k in ("titolo", "prezzo", "url", "fonte", "luogo", "spedizione", "categoria", "extra"):
             p.setdefault(k, c.get(k))
     return errori
 
@@ -155,6 +187,9 @@ def e(testo):
 
 def scheda(p):
     sped = "📦" if p.get("spedizione") else "🤝 solo ritiro"
+    asta = (p.get("fonte") or "").startswith("Asta")
+    if asta:
+        sped = "🏛️ ritiro o spedizione da chiedere all'IVG"
     v = p["valore"]
     margine = ""
     if isinstance(p.get("offerta"), (int, float)):
@@ -162,6 +197,8 @@ def scheda(p):
     righe = [
         f"<b>#{p['n']} · {e(p['verdetto'])} · {e(p.get('nome') or p['titolo'])}</b>",
         f"💶 Chiesto {eur(p.get('prezzo'))} · {e(p.get('fonte') or '')} · {e(p.get('luogo') or '')} {sped}",
+        *([f"⏰ Asta: termine {e(p['extra'].get('termine', '?'))} · Tribunale di {e(p['extra'].get('tribunale', '?'))}"
+           f" · base con oneri {eur(p['extra'].get('prezzo_con_oneri'))}"] if asta and p.get("extra") else []),
         f"🔍 {e(p.get('cosa', ''))}",
         f"🎓 Fiducia: {e(p.get('fiducia', 'n.d.'))}",
     ]
@@ -251,7 +288,7 @@ def main(argv):
         print(__doc__)
         return 0
     if argv[0] == "prepara":
-        prepara(int(argv[argv.index("--n") + 1]) if "--n" in argv else 30)
+        prepara(int(argv[argv.index("--n") + 1]) if "--n" in argv else 30, con_scelti="--scelti" in argv)
     elif argv[0] == "modello":
         print(json.dumps(MODELLO, ensure_ascii=False, indent=1))
     elif argv[0] == "invia":

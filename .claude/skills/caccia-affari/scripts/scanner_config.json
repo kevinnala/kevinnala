@@ -433,5 +433,131 @@
   "punti_minimi": 9,
   "massimo_annunci": 30,
   "_nota": "il token del bot va nella variabile d'ambiente TELEGRAM_BOT_TOKEN, mai qui"
+ },
+ "esplora": {
+  "_nota": "Scanner generale (esplora.py): legge tutto il nuovo per categoria, filtra sui segnali del venditore e fa griglie di foto. {budget} = budget massimo per pezzo.",
+  "budget": 500,
+  "margine_minimo_netto": 50,
+  "prezzo_basso": 40,
+  "max_candidati": 400,
+  "per_griglia": 20,
+  "subito": [
+   {
+    "nome": "Collezionismo",
+    "url": "https://www.subito.it/annunci-italia/vendita/hobby-collezionismo/?order=datedesc&pe={budget}",
+    "pagine_max": 80
+   },
+   {
+    "nome": "Arredamento e casalinghi",
+    "url": "https://www.subito.it/annunci-italia/vendita/arredamento-casalinghi/?order=datedesc&pe={budget}",
+    "pagine_max": 60
+   },
+   {
+    "nome": "Libri e riviste",
+    "url": "https://www.subito.it/annunci-italia/vendita/libri-riviste/?order=datedesc&pe={budget}",
+    "pagine_max": 8
+   },
+   {
+    "nome": "Musica e film",
+    "url": "https://www.subito.it/annunci-italia/vendita/musica-film/?order=datedesc&pe={budget}",
+    "pagine_max": 10
+   }
+  ],
+  "wallapop": {
+   "categorie": [
+    18000,
+    12467
+   ],
+   "solo_italia": true,
+   "pagine_max": 10,
+   "pausa_s": 2,
+   "latitudine": 40.8518,
+   "longitudine": 14.2681
+  },
+  "fallcoaste": {
+   "elenchi": [
+    "https://www.fallcoaste.it/ricerca.html?filter=macro|591^cat0|633^cat1|634",
+    "https://www.fallcoaste.it/ricerca.html?filter=macro|591^cat0|633^cat1|635"
+   ],
+   "pagine": 3,
+   "max_lotti": 60
+  },
+  "escludi": [
+   "iphone",
+   "samsung",
+   "xiaomi",
+   "playstation",
+   "ps4",
+   "ps5",
+   "xbox",
+   "nintendo switch",
+   "ikea",
+   "funko",
+   "cover",
+   "caricabatterie",
+   "materasso",
+   "rete a doghe",
+   "divano letto",
+   "cucina componibile",
+   "armadio",
+   "frigorifero",
+   "lavatrice",
+   "condizionatore",
+   "stufa a pellet",
+   "pneumatici",
+   "cerchi in lega",
+   "affitto",
+   "cerco",
+   "compro",
+   "acquisto"
+  ],
+  "richiedi_epoca": {
+   "Libri e Riviste": [
+    "antico",
+    "antica",
+    "antichi",
+    "vecchio",
+    "vecchi",
+    "epoca",
+    "ottocento",
+    "settecento",
+    "seicento",
+    "800",
+    "700",
+    "1800",
+    "prima edizione",
+    "raro",
+    "rara",
+    "rari",
+    "pergamena",
+    "incisioni",
+    "tavole",
+    "ex libris",
+    "manoscritto",
+    "autografo",
+    "dedica",
+    "futurismo",
+    "cartoline",
+    "stampe",
+    "mappa",
+    "carta geografica"
+   ],
+   "Musica e Film": [
+    "vinile",
+    "vinili",
+    "lp",
+    "33 giri",
+    "45 giri",
+    "78 giri",
+    "dischi",
+    "grammofono",
+    "fonografo",
+    "giradischi",
+    "jukebox",
+    "manifesto",
+    "locandina",
+    "poster"
+   ]
+  }
  }
 }

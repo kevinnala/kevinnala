@@ -127,13 +127,31 @@ vende. Passi, in quest'ordine, senza saltarne:
 ```bash
 S=.claude/skills/caccia-affari/scripts
 python3 $S/telegram_bot.py                 # 1. legge i messaggi dell'utente (preso/venduto/note) e risponde
-python3 $S/scanner.py                      # 2. scanner (salta visti e periziati; bonus alle categorie che hanno reso)
-python3 $S/perizie.py prepara --n 30       # 3. 30 candidati nuovi + provini delle foto + LEZIONI dagli esiti
-#    4. Claude guarda ogni provino (Read) e il testo, e scrive risultati/perizie/perizie.json
-#       (formato: `perizie.py modello`), applicando la skill e le lezioni stampate al passo 3
-python3 $S/perizie.py invia .claude/skills/caccia-affari/risultati/perizie/perizie.json   # 5. Telegram + memoria
-#    6. commit e push di .claude/skills/caccia-affari/memoria/ (senza push la memoria si perde)
+python3 $S/scanner.py                      # 2a. scanner per parole (salta visti e periziati; bonus dagli esiti)
+python3 $S/esplora.py                      # 2b. scanner GENERALE: tutto il nuovo per categoria + aste giudiziarie
+#    3. Claude GUARDA TUTTE le griglie risultati/esplora/griglia-*.jpg (Read, una per volta) come un
+#       rigattiere: cerca ciò che il titolo non dice (firma, marchio, materiale, epoca, forma da designer,
+#       arte tribale vera, bronzo, argento, vetro d'autore...). Scrive i numeri scelti (#k) in
+#       risultati/esplora/scelti.txt — di solito 10-25 su 400; nel dubbio includi.
+python3 $S/perizie.py prepara --n 30 --scelti   # 4. scelti dalle griglie + i migliori per parole fino a 30,
+#                                                    provini delle foto + LEZIONI dagli esiti
+#    5. Claude guarda ogni provino (Read) e il testo, e scrive risultati/perizie/perizie.json
+#       (formato: `perizie.py modello`), applicando la skill e le lezioni stampate al passo 4
+python3 $S/perizie.py invia .claude/skills/caccia-affari/risultati/perizie/perizie.json   # 6. Telegram + memoria
+#    7. commit e push di .claude/skills/caccia-affari/memoria/ (senza push la memoria si perde)
 ```
+
+- **Budget e margine** dell'utente: `esplora.budget` (500 €) e `esplora.margine_minimo_netto`
+  (50 €) in `scanner_config.json`. COMPRA/TRATTA solo se il netto atteso supera il margine minimo.
+- **Scanner generale** (`esplora.py`): Subito per categoria (collezionismo, arredamento, libri e
+  musica solo con segnali d'epoca), Wallapop per categoria (solo Italia), aste giudiziarie di
+  Fallcoaste (oggetti d'arte e preziosi: lotti dei tribunali, descritti in fretta). Tiene solo
+  privati sotto budget e premia i segnali del venditore inconsapevole (titolo vago, parole da
+  cantina/eredità, poche foto, descrizione scarna); penalizza chi nomina già il marchio. Per le
+  aste: scadenza, tribunale e "prezzo base con oneri" sono nella scheda; il ritiro o la
+  spedizione si chiedono all'IVG prima di offrire.
+- **Siti che rifiutano i programmi automatici** (Asteannunci, Mercatinousato, Facebook): non si
+  aggirano i blocchi. Facebook Marketplace solo dal browser dell'utente, se collega il suo computer.
 
 - **Perizia per ogni annuncio** (30): verdetto COMPRA / TRATTA / VERIFICA PRIMA / LASCIA,
   valore `[prudente, probabile, ottimista]`; per i non-LASCIA anche cosa è, fiducia, dove
