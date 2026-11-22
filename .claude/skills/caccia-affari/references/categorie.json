@@ -401,7 +401,16 @@
     "lotto libri",
     "atlante antico",
     "carta geografica antica",
-    "stampa antica"
+    "stampa antica",
+    "libro",
+    "libri",
+    "manuale",
+    "volume",
+    "volumi",
+    "enciclopedia antica",
+    "edizione",
+    "rilegato",
+    "rilegatura"
    ],
    "leggi": [
     "categorie/altre-categorie.md#Libri",
@@ -1186,8 +1195,6 @@
     "macchiaioli",
     "scuola napoletana",
     "posillipo",
-    "ottocento",
-    "impressionista",
     "incisione",
     "acquaforte",
     "litografia",
@@ -1195,9 +1202,12 @@
     "painting",
     "tableau",
     "gemalde",
-    "xix secolo",
-    "fine ottocento",
-    "quadro firmato"
+    "quadro firmato",
+    "miniatura dipinta",
+    "miniatura antica",
+    "miniatura su avorio",
+    "dipinta a mano",
+    "dipinto a mano"
    ],
    "leggi": [
     "categorie/dipinti-stampe.md#Prima domanda",
@@ -1410,7 +1420,23 @@
     "cerreto sannita",
     "san lorenzello",
     "ariano irpino",
-    "giustiniani"
+    "giustiniani",
+    "piatto",
+    "piatti",
+    "piatto decorato",
+    "gien",
+    "quimper",
+    "villeroy",
+    "boch",
+    "creil",
+    "sarreguemines",
+    "majolica",
+    "zuppiera",
+    "alzata",
+    "brocca",
+    "tazza e piattino",
+    "servizio da caffe",
+    "servizio da te"
    ],
    "leggi": [
     "categorie/ceramiche-vetri.md#Porcellana, maiolica",

@@ -156,7 +156,12 @@ def main(argv):
     visti = {r[0] for r in db.execute("SELECT id FROM annunci")}
     adesso = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     nuovi, righe = 0, []
+    ritiro = set(cfg.get("province_ritiro", []))
+    scartati_distanza = 0
     for a in annunci:
+        if ritiro and not a.get("spedizione") and a.get("provincia") not in ritiro:
+            scartati_distanza += 1  # solo ritiro a mano, ma troppo lontano
+            continue
         cat = router.classifica(f"{a['titolo']} {a['testo']}", dati)
         punti, motivi = punteggio(a, cat, cfg)
         a["categoria"] = cat[0][1]["id"] if cat else ""
@@ -177,13 +182,13 @@ def main(argv):
     with open(nome, "w", encoding="utf-8") as fh:
         fh.write(f"# Scanner Subito — {adesso}\n\n")
         fh.write(f"Zone: {', '.join(z['nome'] for z in cfg['zone'])} · ricerche: {len(richieste) // len(cfg['zone'])} · "
-                 f"annunci letti: {len(annunci)} · nuovi: {nuovi} · da guardare (punti ≥ {soglia}): {len(da_guardare)}\n\n")
+                 f"annunci letti: {len(annunci)} · scartati perché solo ritiro e lontani: {scartati_distanza} · nuovi: {nuovi} · da guardare (punti ≥ {soglia}): {len(da_guardare)}\n\n")
         fh.write("Il punteggio ordina cosa guardare prima; non è una stima di valore.\n\n")
         fh.write("| # | Punti | Prezzo | Titolo | Luogo | Categoria | Perché |\n|---|---|---|---|---|---|---|\n")
         for i, a in enumerate(da_guardare, 1):
             prezzo = f"{a['prezzo']:.0f} €" if a["prezzo"] else "—"
             titolo = a["titolo"].replace("|", "/")[:70]
-            fh.write(f"| {i} | {a['punti']} | {prezzo} | [{titolo}]({a['url']}) | {a['comune']} ({a['provincia']}) | "
+            fh.write(f"| {i} | {a['punti']} | {prezzo} | [{titolo}]({a['url']}) | {a['comune']} ({a['provincia']}){' 📦' if a.get('spedizione') else ' 🤝'} | "
                      f"{a['categoria'] or '?'} | {'; '.join(a['motivi'])[:160]} |\n")
     with open(nome.replace(".md", ".json"), "w", encoding="utf-8") as fh:
         json.dump(da_guardare, fh, ensure_ascii=False, indent=1)

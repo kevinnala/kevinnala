@@ -1,6 +1,10 @@
 {
- "_nota": "Zone e ricerche dello scanner. {q} viene sostituito dalla ricerca. order=datedesc = più recenti prima. Aggiungi o togli ricerche liberamente.",
+ "_nota": "Zone e ricerche dello scanner. {q} viene sostituito dalla ricerca. order=datedesc = più recenti prima. Regola di ritiro: gli annunci SENZA spedizione si tengono solo se sono nelle province di 'province_ritiro'; quelli con spedizione da qualunque luogo.",
  "zone": [
+  {
+   "nome": "Italia",
+   "url": "https://www.subito.it/annunci-italia/vendita/usato/?q={q}&order=datedesc"
+  },
   {
    "nome": "Campania",
    "url": "https://www.subito.it/annunci-campania/vendita/usato/?q={q}&order=datedesc"
@@ -219,5 +223,14 @@
    "pelle d angelo",
    "lava vesuviana"
   ]
- }
+ },
+ "province_ritiro": [
+  "NA",
+  "CE",
+  "SA",
+  "AV",
+  "BN",
+  "LT",
+  "FR"
+ ]
 }

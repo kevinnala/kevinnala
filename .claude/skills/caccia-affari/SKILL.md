@@ -89,6 +89,22 @@ l'indice dice quale libro usare), poi negli indici di `dati/` (`grep -i "<nome>"
 dati/*.tsv`: date di attività e tipi di oggetto per verificare la coerenza) e poi in rete. Sono libri storici: affidabili per marchi,
 date e biografie, non per i prezzi. Cita il libro e la pagina quando lo usi.
 
+## Scanner automatico (Subito)
+
+```bash
+python3 .claude/skills/caccia-affari/scripts/scanner.py            # giro completo (~25 min)
+python3 .claude/skills/caccia-affari/scripts/scanner.py --max 5    # prova veloce
+python3 .claude/skills/caccia-affari/scripts/scanner.py --da-archivio  # ricalcola dopo aver cambiato i segnali
+python3 .claude/skills/caccia-affari/scripts/foto.py <url> --max-foto 3  # testo e foto di un annuncio
+```
+
+Cerca in tutta Italia e nelle zone di ritiro; tiene gli annunci con spedizione da ovunque e
+quelli **solo a mano** soltanto nelle province di ritiro (`province_ritiro` in
+`scripts/scanner_config.json`: oggi Campania, Latina, Frosinone). Salta gli annunci già
+visti, li smista con `categoria.py`, li ordina per probabilità di affare e scrive
+`risultati/report-*.md` (📦 spedibile, 🤝 solo ritiro). Il punteggio ordina, non stima:
+la perizia si fa sui primi della lista con le foto (`foto.py`).
+
 ## 1. Capire la richiesta
 
 Tre modalità; riconosci quale e chiedi in un solo messaggio ciò che manca:
