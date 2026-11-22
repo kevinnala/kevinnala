@@ -1,0 +1,2004 @@
+{
+ "_nota": "Catalogo usato da scripts/categoria.py. 'parole': termini (senza accenti, minuscoli; frasi ammesse) in italiano, inglese, francese, tedesco ed errori comuni. 'leggi': 'file#inizio del titolo di sezione' (senza # = file intero), percorsi relativi a references/. 'manuali': prefissi dei file in manuali/testi/.",
+ "categorie": [
+  {
+   "id": "lotto-misto",
+   "nome": "Lotti misti, sgomberi, eredità",
+   "parole": [
+    "sgombero",
+    "sgomberi",
+    "svuoto cantina",
+    "svuota cantina",
+    "svuoto soffitta",
+    "svuoto casa",
+    "eredita",
+    "eredità",
+    "lotto oggetti",
+    "oggetti vecchi",
+    "cianfrusaglie",
+    "varie cose",
+    "roba vecchia",
+    "tutto a",
+    "blocco",
+    "stock oggetti",
+    "mercatino"
+   ],
+   "leggi": [
+    "metodo-perizia.md#Le cinque domande",
+    "dove-cercare.md#Segnali di un buon annuncio"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "guarda tutte le foto e fai l'elenco degli oggetti riconoscibili",
+    "per ogni oggetto promettente rilancia categoria.py con la sua descrizione",
+    "stima il lotto sul valore dei 1-3 pezzi migliori: il resto è margine o costo di smaltimento",
+    "chiedi foto ravvicinate solo dei pezzi promettenti"
+   ],
+   "foto": [
+    "panoramica di ogni scatola o stanza",
+    "ravvicinate dei pezzi promettenti, con marchi e firme"
+   ],
+   "rischi": [
+    "costi di ritiro e smaltimento del resto"
+   ],
+   "vendi": "pezzi migliori sui canali della loro categoria; il resto a lotti su Subito, Vinted, mercatini"
+  },
+  {
+   "id": "carte-tcg",
+   "nome": "Carte collezionabili (Pokémon, Magic, Yu-Gi-Oh, One Piece, Lorcana)",
+   "parole": [
+    "pokemon",
+    "pokmon",
+    "pokemn",
+    "charizard",
+    "pikachu",
+    "carte pokemon",
+    "carta pokemon",
+    "tcg",
+    "magic the gathering",
+    "mtg",
+    "yugioh",
+    "yu-gi-oh",
+    "yu gi oh",
+    "one piece card",
+    "lorcana",
+    "carte collezionabili",
+    "trading card",
+    "psa 10",
+    "psa 9",
+    "gradata",
+    "graded",
+    "holo",
+    "prima edizione",
+    "1st edition",
+    "shadowless",
+    "booster",
+    "bustina",
+    "busta sigillata",
+    "elite trainer",
+    "raccoglitore carte",
+    "lotto carte",
+    "binder",
+    "black lotus"
+   ],
+   "leggi": [
+    "categorie/carte-collezionabili.md#Identificare",
+    "categorie/carte-collezionabili.md#Falsi",
+    "canali-specializzati/carte-giochi-dischi-libri.md#Carte collezionabili"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "set, numero, lingua, variante (1st Edition / shadowless / unlimited)",
+    "condizione: centratura, angoli, bordi del retro, graffi sull'olografico",
+    "falsi: test della luce, blu del retro, font e simboli",
+    "carte gradate: numero di certificato sul sito PSA/CGC/BGS",
+    "prezzo: Cardmarket (non gradate), PriceCharting o eBay venduti (gradate)"
+   ],
+   "foto": [
+    "fronte e retro a fuoco",
+    "angoli in macro",
+    "olografico inclinato sotto la luce",
+    "etichetta e certificato se gradata"
+   ],
+   "rischi": [
+    "lotti con carte 'top' troppo belle per il prezzo",
+    "custodie di grading false"
+   ],
+   "vendi": "Cardmarket fino a ~200 € non gradate; eBay privato (0%) o aste specializzate per gradate e carte di valore"
+  },
+  {
+   "id": "figurine",
+   "nome": "Figurine Panini e album",
+   "parole": [
+    "figurine",
+    "figurina",
+    "panini",
+    "album calciatori",
+    "album figurine",
+    "pizzaballa",
+    "calciatori panini",
+    "edis",
+    "lampo",
+    "vallardi"
+   ],
+   "leggi": [
+    "canali-specializzati/carte-giochi-dischi-libri.md#Figurine"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "anno dell'album e completezza",
+    "figurine attaccate o sciolte, mancanti chiave (es. Pizzaballa 1963)",
+    "ristampe anastatiche dei giornali: valgono poco"
+   ],
+   "foto": [
+    "tutte le pagine dell'album",
+    "retro delle figurine sciolte"
+   ],
+   "rischi": [
+    "ristampe vendute come originali"
+   ],
+   "vendi": "Aste Bolaffi e Catawiki per album importanti; eBay per figurine singole"
+  },
+  {
+   "id": "fumetti",
+   "nome": "Fumetti",
+   "parole": [
+    "fumetto",
+    "fumetti",
+    "topolino",
+    "topolino libretto",
+    "tex",
+    "tex a striscia",
+    "diabolik",
+    "dylan dog",
+    "zagor",
+    "comics",
+    "marvel",
+    "dc comics",
+    "albi",
+    "albo",
+    "tavola originale",
+    "corriere dei piccoli",
+    "intrepido",
+    "manga"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Fumetti",
+    "canali-specializzati/carte-giochi-dischi-libri.md#Fumetti"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "numero, edizione e prima stampa o ristampa",
+    "allegati e supplementi presenti",
+    "condizione (dorso, pieghe, ingiallimento); CGC per i pezzi di valore",
+    "prezzo: Guida al Fumetto Italiano, aste Little Nemo e Bolaffi"
+   ],
+   "foto": [
+    "copertina e quarta",
+    "pagina con dati di stampa",
+    "dorso"
+   ],
+   "rischi": [
+    "ristampe anastatiche vendute come originali"
+   ],
+   "vendi": "Little Nemo, Urania, Bolaffi per i pezzi importanti; eBay e fiere ANAFI"
+  },
+  {
+   "id": "giocattoli",
+   "nome": "Giocattoli d'epoca, modellismo e trenini",
+   "parole": [
+    "giocattolo",
+    "giocattoli",
+    "latta",
+    "ingap",
+    "schuco",
+    "lehmann",
+    "marklin",
+    "maerklin",
+    "rivarossi",
+    "lima",
+    "trenino",
+    "trenini",
+    "plastico ferroviario",
+    "dinky",
+    "corgi",
+    "mercury",
+    "politoys",
+    "matchbox",
+    "modellino",
+    "modellini",
+    "action figure",
+    "kenner",
+    "star wars vintage",
+    "masters of the universe",
+    "transformers",
+    "big jim",
+    "bambola",
+    "bambole",
+    "furga",
+    "barbie vintage",
+    "robot latta",
+    "tin toy",
+    "spielzeug",
+    "jouet ancien"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Giocattoli",
+    "canali-specializzati/carte-giochi-dischi-libri.md#Giocattoli"
+   ],
+   "manuali": [],
+   "dati": "produttori-met",
+   "verifiche": [
+    "marca e modello, variante di produzione",
+    "scatola originale (può valere quanto il pezzo)",
+    "completezza di accessori e chiavetta, funzionamento",
+    "ridipinture e parti rifatte"
+   ],
+   "foto": [
+    "marchi impressi sotto",
+    "scatola su tutti i lati",
+    "meccanismo"
+   ],
+   "rischi": [
+    "riproduzioni moderne di latta"
+   ],
+   "vendi": "Vectis (UK), Finarte giocattoli, Catawiki, eBay internazionale"
+  },
+  {
+   "id": "lego",
+   "nome": "LEGO",
+   "parole": [
+    "lego",
+    "minifigure",
+    "minifig",
+    "technic",
+    "lego castle",
+    "lego space",
+    "duplo",
+    "lego star wars",
+    "lego sigillato",
+    "lotto lego"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#LEGO",
+    "canali-specializzati/carte-giochi-dischi-libri.md#LEGO"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "numero del set, sigillato o completo con istruzioni e scatola",
+    "minifigure rare nei lotti sfusi",
+    "prezzo: BrickEconomy, BrickLink, eBay venduti"
+   ],
+   "foto": [
+    "scatola e sigilli",
+    "minifigure separate"
+   ],
+   "rischi": [
+    "mattoncini compatibili non LEGO mescolati"
+   ],
+   "vendi": "BrickLink (verifica che funzioni), eBay, lotti su Subito e Vinted"
+  },
+  {
+   "id": "videogiochi",
+   "nome": "Videogiochi e console d'epoca",
+   "parole": [
+    "videogioco",
+    "videogiochi",
+    "nintendo",
+    "nes",
+    "snes",
+    "super nintendo",
+    "game boy",
+    "gameboy",
+    "n64",
+    "gamecube",
+    "sega",
+    "mega drive",
+    "megadrive",
+    "master system",
+    "playstation",
+    "ps1",
+    "ps2",
+    "atari",
+    "neo geo",
+    "cartuccia",
+    "cartucce",
+    "console",
+    "retrogaming",
+    "pal ita",
+    "sigillato wata"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Videogiochi",
+    "canali-specializzati/carte-giochi-dischi-libri.md#Videogiochi"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "regione (PAL ITA vale di più in Italia), completezza (CIB: scatola, manuale, inserti)",
+    "sigillo originale o risigillato",
+    "cartucce: etichetta, chip, funzionamento",
+    "prezzo: PriceCharting (sezione PAL), eBay venduti"
+   ],
+   "foto": [
+    "scatola fronte/retro",
+    "manuale e inserti",
+    "retro della cartuccia e numero di serie della console"
+   ],
+   "rischi": [
+    "risigillature",
+    "copertine ristampate"
+   ],
+   "vendi": "eBay, Subito; WATA/VGA e aste per i sigillati di valore"
+  },
+  {
+   "id": "vinili",
+   "nome": "Vinili e dischi",
+   "parole": [
+    "vinile",
+    "vinili",
+    "lp",
+    "33 giri",
+    "45 giri",
+    "78 giri",
+    "disco",
+    "dischi",
+    "prima stampa",
+    "first press",
+    "picture disc",
+    "prog italiano",
+    "colonna sonora",
+    "jazz vinile",
+    "lotto vinili",
+    "discogs"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Vinili",
+    "canali-specializzati/carte-giochi-dischi-libri.md#Vinili"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "stampa esatta: scritte incise nel runout, etichetta, codici, paese",
+    "condizione di disco e copertina (scala Goldmine)",
+    "inserti originali",
+    "prezzo: storico venduti di Discogs"
+   ],
+   "foto": [
+    "etichette di entrambi i lati",
+    "runout in macro",
+    "copertina e inserti"
+   ],
+   "rischi": [
+    "ristampe vendute come prime stampe"
+   ],
+   "vendi": "Discogs (9%); negozi di dischi per i lotti"
+  },
+  {
+   "id": "libri",
+   "nome": "Libri antichi, prime edizioni, manoscritti",
+   "parole": [
+    "libro antico",
+    "libri antichi",
+    "prima edizione",
+    "first edition",
+    "cinquecentina",
+    "seicentina",
+    "incunabolo",
+    "manoscritto",
+    "pergamena",
+    "ex libris",
+    "dedica autografa",
+    "legatura",
+    "volume antico",
+    "libri vecchi",
+    "lotto libri",
+    "atlante antico",
+    "carta geografica antica",
+    "stampa antica"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Libri",
+    "canali-specializzati/carte-giochi-dischi-libri.md#Libri"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "frontespizio e colophon: data, tipografo, edizione",
+    "completezza (contare tavole e carte), timbri di biblioteche (possibile furto)",
+    "prezzo: Marelibrorum/Maremagnum, AbeBooks, aste Gonnelli"
+   ],
+   "foto": [
+    "frontespizio",
+    "colophon",
+    "legatura e dorso",
+    "tavole"
+   ],
+   "rischi": [
+    "timbri di biblioteche pubbliche",
+    "facsimili"
+   ],
+   "vendi": "librai ALAI/ILAB, Gonnelli, Pandolfini, Bolaffi; Maremagnum solo come riferimento prezzi"
+  },
+  {
+   "id": "sport",
+   "nome": "Memorabilia sportiva",
+   "parole": [
+    "maglia indossata",
+    "match worn",
+    "maglia calcio",
+    "maglia autografata",
+    "cimeli",
+    "memorabilia",
+    "pallone autografato",
+    "maglietta da gara",
+    "match issue"
+   ],
+   "leggi": [
+    "canali-specializzati/carte-giochi-dischi-libri.md#Memorabilia"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "match worn (indossata) o match issue (preparata): vale molto meno",
+    "dettagli da giocatore: patch, numeri, font, etichette",
+    "prova fotografica (photo-matching) e certificati"
+   ],
+   "foto": [
+    "etichette interne",
+    "patch e numeri",
+    "autografo in macro"
+   ],
+   "rischi": [
+    "maglie replica con autografi falsi"
+   ],
+   "vendi": "Aste Bolaffi Sport, MatchWornShirt, Memorabid, Heritage"
+  },
+  {
+   "id": "manifesti",
+   "nome": "Manifesti di cinema e pubblicitari",
+   "parole": [
+    "manifesto",
+    "manifesti",
+    "locandina",
+    "fotobusta",
+    "fotobuste",
+    "poster cinema",
+    "affiche",
+    "manifesto pubblicitario",
+    "dudovich",
+    "cappiello",
+    "casaro",
+    "symeoni",
+    "brini",
+    "2 fogli",
+    "4 fogli"
+   ],
+   "leggi": [
+    "canali-specializzati/carte-giochi-dischi-libri.md#Manifesti"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "prima uscita o riedizione (tipografia e anno in basso)",
+    "illustratore",
+    "formato e piegatura originale",
+    "restauri e telatura"
+   ],
+   "foto": [
+    "intero",
+    "angolo con la tipografia",
+    "retro"
+   ],
+   "rischi": [
+    "riproduzioni moderne"
+   ],
+   "vendi": "Little Nemo, Cambi, Bolaffi, Wannenes; eMoviePoster (USA)"
+  },
+  {
+   "id": "monete",
+   "nome": "Monete e numismatica",
+   "parole": [
+    "moneta",
+    "monete",
+    "lire",
+    "lira",
+    "regno d'italia",
+    "vittorio emanuele",
+    "umberto i",
+    "marengo",
+    "ducato",
+    "zecchino",
+    "scudo",
+    "tallero",
+    "sesterzio",
+    "denario",
+    "aureo",
+    "moneta romana",
+    "monete antiche",
+    "numismatica",
+    "fdc",
+    "proof",
+    "fondo specchio",
+    "monete d'argento",
+    "coin",
+    "coins",
+    "munze",
+    "monnaie",
+    "500 lire caravelle",
+    "lotto monete",
+    "500 lire",
+    "1000 lire",
+    "lire argento",
+    "caravelle",
+    "moneta argento",
+    "monete argento",
+    "centesimi",
+    "soldi antichi"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Monete",
+    "canali-specializzati/monete-francobolli-storia.md#Numismatica",
+    "legale-fiscale.md#Da non comprare"
+   ],
+   "manuali": [
+    "numismatica-"
+   ],
+   "dati": "",
+   "verifiche": [
+    "autorità, zecca, anno, varianti (catalogo Gigante/Numista)",
+    "conservazione (B, MB, BB, SPL, FDC); monete pulite perdono valore",
+    "falsi: peso, diametro, bordo, stile",
+    "prezzo: acsearch, NumisBids, CoinArchives (venduti)"
+   ],
+   "foto": [
+    "dritto e rovescio in macro, luce radente",
+    "bordo",
+    "peso in grammi"
+   ],
+   "rischi": [
+    "monete da scavo senza provenienza (reato)",
+    "falsi d'epoca e moderni"
+   ],
+   "vendi": "aste numismatiche (Varesi, Nomisma, Artemide, NAC, Bertolami) e commercianti NIP; Catawiki/eBay per pezzi minori"
+  },
+  {
+   "id": "banconote",
+   "nome": "Banconote (cartamoneta)",
+   "parole": [
+    "banconota",
+    "banconote",
+    "cartamoneta",
+    "biglietto di stato",
+    "banca d'italia",
+    "am lire",
+    "fior di stampa",
+    "banknote",
+    "pmg"
+   ],
+   "leggi": [
+    "canali-specializzati/monete-francobolli-storia.md#Banconote"
+   ],
+   "manuali": [
+    "numismatica-"
+   ],
+   "dati": "",
+   "verifiche": [
+    "tipo, decreto, serie e firme",
+    "conservazione: pieghe, lavaggi, fori",
+    "prezzo: Catalogo Gigante della cartamoneta, aste"
+   ],
+   "foto": [
+    "fronte e retro",
+    "numeri di serie"
+   ],
+   "rischi": [
+    "banconote lavate e stirate",
+    "falsi"
+   ],
+   "vendi": "aste numismatiche con sezione cartamoneta, eBay"
+  },
+  {
+   "id": "medaglie",
+   "nome": "Medaglie, ordini e decorazioni",
+   "parole": [
+    "medaglia",
+    "medaglie",
+    "decorazione",
+    "onorificenza",
+    "ordine cavalleresco",
+    "croce di guerra",
+    "medaglia al valore",
+    "distintivo",
+    "placca"
+   ],
+   "leggi": [
+    "canali-specializzati/monete-francobolli-storia.md#Medaglie"
+   ],
+   "manuali": [
+    "numismatica-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "tipo, conferitore, epoca; nastrino originale",
+    "metallo e punzoni del fabbricante",
+    "documenti di conferimento (aumentano molto il valore)"
+   ],
+   "foto": [
+    "dritto e rovescio",
+    "attacco e nastrino",
+    "documenti"
+   ],
+   "rischi": [
+    "copie moderne"
+   ],
+   "vendi": "Bertolami, Pananti, Finarte; Hermann Historica e Noonans all'estero"
+  },
+  {
+   "id": "francobolli",
+   "nome": "Francobolli e storia postale",
+   "parole": [
+    "francobollo",
+    "francobolli",
+    "filatelia",
+    "busta viaggiata",
+    "lettera viaggiata",
+    "annullo",
+    "antichi stati",
+    "regno filatelia",
+    "album francobolli",
+    "classificatore",
+    "stamp",
+    "stamps",
+    "briefmarken",
+    "sassone"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Francobolli",
+    "canali-specializzati/monete-francobolli-storia.md#Filatelia"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "catalogo Sassone: numero, varietà",
+    "nuovo con gomma integra / linguellato / usato; dentellatura e margini",
+    "pezzi di valore solo con certificato di perito (APFIP, CNPFI)"
+   ],
+   "foto": [
+    "fronte e retro",
+    "annulli in macro"
+   ],
+   "rischi": [
+    "riparazioni e falsi",
+    "album di nonno quasi sempre di poco valore"
+   ],
+   "vendi": "aste filateliche (Bolaffi, Laser Invest, Ferrario, Vaccari), commercianti ANPF, Delcampe"
+  },
+  {
+   "id": "cartoline",
+   "nome": "Cartoline d'epoca",
+   "parole": [
+    "cartolina",
+    "cartoline",
+    "cartoline d'epoca",
+    "cartolina viaggiata",
+    "postcard",
+    "carte postale",
+    "ansichtskarte"
+   ],
+   "leggi": [
+    "canali-specializzati/monete-francobolli-storia.md#Cartoline"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "soggetto (vedute animate di paesi piccoli, temi, illustratori)",
+    "viaggiata o no, francobollo e annullo",
+    "condizione degli angoli"
+   ],
+   "foto": [
+    "fronte e retro"
+   ],
+   "rischi": [
+    "ristampe"
+   ],
+   "vendi": "Delcampe, aste filateliche con sezione cartoline"
+  },
+  {
+   "id": "militaria",
+   "nome": "Militaria (uniformi, elmetti, armi bianche)",
+   "parole": [
+    "militaria",
+    "elmetto",
+    "uniforme",
+    "divisa militare",
+    "baionetta",
+    "sciabola",
+    "spada",
+    "pugnale",
+    "daga",
+    "fregio",
+    "mostrine",
+    "giberna",
+    "cimeli di guerra",
+    "regio esercito",
+    "wehrmacht",
+    "ww1",
+    "ww2",
+    "prima guerra mondiale",
+    "seconda guerra mondiale",
+    "armi antiche",
+    "fucile antico",
+    "pistola antica"
+   ],
+   "leggi": [
+    "canali-specializzati/monete-francobolli-storia.md#Militaria",
+    "legale-fiscale.md#Categorie con regole speciali"
+   ],
+   "manuali": [
+    "armi-"
+   ],
+   "dati": "",
+   "verifiche": [
+    "autenticità: marchi, punzoni, timbri di reparto, materiali d'epoca",
+    "armi bianche e da fuoco: servono titoli (porto d'armi/nulla osta) e denuncia entro 72 ore",
+    "copie e reenactment molto diffuse"
+   ],
+   "foto": [
+    "marchi e timbri",
+    "interni (etichette, cuoio)"
+   ],
+   "rischi": [
+    "obblighi di legge sulle armi",
+    "falsi per collezionisti"
+   ],
+   "vendi": "Bertolami, Il Ponte, Fidelis, Finarte; Hermann Historica; forum Miles e warrelics"
+  },
+  {
+   "id": "autografi",
+   "nome": "Autografi e documenti storici",
+   "parole": [
+    "autografo",
+    "autografi",
+    "lettera autografa",
+    "firma originale",
+    "documento storico",
+    "pergamena",
+    "diploma",
+    "manoscritto"
+   ],
+   "leggi": [
+    "canali-specializzati/monete-francobolli-storia.md#Autografi"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "confronto con firme certe",
+    "inchiostro e supporto coerenti con l'epoca",
+    "provenienza; documenti da archivi pubblici non vendibili"
+   ],
+   "foto": [
+    "intero",
+    "firma in macro",
+    "retro"
+   ],
+   "rischi": [
+    "firme stampate o segretariali",
+    "beni demaniali"
+   ],
+   "vendi": "Gonnelli, Bolaffi, Pandolfini, Finarte; RR Auction (USA)"
+  },
+  {
+   "id": "orologi",
+   "nome": "Orologi (polso, tasca, pendole)",
+   "parole": [
+    "orologio",
+    "orologi",
+    "cronografo",
+    "rolex",
+    "rollex",
+    "omega",
+    "omegha",
+    "longines",
+    "zenith",
+    "heuer",
+    "universal geneve",
+    "eberhard",
+    "patek",
+    "vacheron",
+    "jaeger",
+    "lecoultre",
+    "cartier orologio",
+    "orologio da tasca",
+    "cipolla",
+    "pendola",
+    "pendolo",
+    "regolatore",
+    "sveglia antica",
+    "carica manuale",
+    "automatico vintage",
+    "watch",
+    "montre",
+    "uhr"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Orologi",
+    "canali-specializzati/orologi-tecnica-strumenti.md#Orologi",
+    "dove-rivendere.md#Orologi"
+   ],
+   "manuali": [
+    "orologi-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "referenza e calibro (contano più della marca)",
+    "quadrante originale o ridipinto, lancette e corona corrette",
+    "numero di serie: anno (tabelle Omega, archivio Longines)",
+    "far aprire il fondello prima di cifre importanti"
+   ],
+   "foto": [
+    "quadrante in macro",
+    "fondello e numeri",
+    "movimento",
+    "corona e fibbia"
+   ],
+   "rischi": [
+    "falsi e 'Franken' assemblati",
+    "quadranti rifatti"
+   ],
+   "vendi": "Chrono24 (6,95%), eBay; Bolaffi, Pandolfini, Wannenes, Dr. Crott per i pezzi importanti"
+  },
+  {
+   "id": "gioielli",
+   "nome": "Gioielli e oro",
+   "parole": [
+    "gioiello",
+    "gioielli",
+    "oro 18",
+    "oro 750",
+    "750",
+    "anello",
+    "collana",
+    "bracciale",
+    "orecchini",
+    "spilla",
+    "brillante",
+    "diamante",
+    "smeraldo",
+    "rubino",
+    "zaffiro",
+    "corallo",
+    "cammeo",
+    "buccellati",
+    "bulgari",
+    "bvlgari",
+    "tiffany",
+    "bigiotteria",
+    "jewelry",
+    "bijou"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Gioielli",
+    "canali-specializzati/orologi-tecnica-strumenti.md#Gioielli"
+   ],
+   "manuali": [
+    "argento-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "punzoni: titolo (750, 585...) e stella+numero+provincia del produttore",
+    "peso × titolo × quotazione = prezzo minimo",
+    "firme di maison su fermagli e gambi",
+    "pietre: certificato gemmologico (IGI, CISGEM) per le importanti"
+   ],
+   "foto": [
+    "punzoni in macro",
+    "pietre",
+    "peso sulla bilancia"
+   ],
+   "rischi": [
+    "placcati e pietre sintetiche",
+    "cammei in plastica"
+   ],
+   "vendi": "aste di gioielli (Bolaffi, Pandolfini, Wannenes); compro oro OAM solo come prezzo minimo"
+  },
+  {
+   "id": "penne",
+   "nome": "Penne stilografiche",
+   "parole": [
+    "penna stilografica",
+    "stilografica",
+    "stilografiche",
+    "montblanc",
+    "mont blanc",
+    "aurora",
+    "omas",
+    "montegrappa",
+    "parker 51",
+    "pelikan",
+    "waterman",
+    "pennino",
+    "celluloide"
+   ],
+   "leggi": [
+    "canali-specializzati/orologi-tecnica-strumenti.md#Penne"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "marca, modello e anno; celluloide originale",
+    "pennino in oro (flessibile vale di più)",
+    "edizione limitata con scatola e certificato",
+    "caricamento funzionante"
+   ],
+   "foto": [
+    "pennino in macro",
+    "incisioni sul cappuccio e sul fusto"
+   ],
+   "rischi": [
+    "falsi Montblanc"
+   ],
+   "vendi": "Bolaffi, Bonhams; mostre scambio ACPS; forum FountainPen.it"
+  },
+  {
+   "id": "fotografia",
+   "nome": "Macchine fotografiche e obiettivi",
+   "parole": [
+    "macchina fotografica",
+    "fotocamera",
+    "obiettivo",
+    "leica",
+    "leitz",
+    "zeiss",
+    "contax",
+    "rolleiflex",
+    "rollei",
+    "hasselblad",
+    "voigtlander",
+    "nikon f",
+    "canon ftb",
+    "pentax",
+    "analogica",
+    "telemetro",
+    "camera vintage"
+   ],
+   "leggi": [
+    "canali-specializzati/orologi-tecnica-strumenti.md#Macchine"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "numero di serie (data di produzione)",
+    "ottiche: funghi, graffi, opacità, diaframma",
+    "otturatore e telemetro funzionanti"
+   ],
+   "foto": [
+    "obiettivo controluce",
+    "numeri di serie"
+   ],
+   "rischi": [
+    "Leica false (spesso sovietiche ritargate)"
+   ],
+   "vendi": "Leitz Photographica Auction, Breker; MPB/KEH per vendere subito"
+  },
+  {
+   "id": "strumenti-musicali",
+   "nome": "Strumenti musicali",
+   "parole": [
+    "chitarra",
+    "chitarre",
+    "basso elettrico",
+    "fender",
+    "gibson",
+    "eko",
+    "wandre",
+    "amplificatore valvolare",
+    "sintetizzatore",
+    "synth",
+    "moog",
+    "roland",
+    "korg",
+    "tastiera vecchia",
+    "violino",
+    "viola",
+    "violoncello",
+    "archetto",
+    "liutaio",
+    "sassofono",
+    "tromba",
+    "fisarmonica",
+    "batteria ludwig"
+   ],
+   "leggi": [
+    "canali-specializzati/orologi-tecnica-strumenti.md#Strumenti musicali"
+   ],
+   "manuali": [],
+   "dati": "produttori-met",
+   "verifiche": [
+    "numero di serie (Fender e Gibson: ricerca ufficiale; attenzione ai seriali Gibson 1961-75)",
+    "parti originali (pickup, meccaniche, verniciatura)",
+    "violini: etichetta quasi sempre non attendibile, serve un liutaio esperto"
+   ],
+   "foto": [
+    "paletta e seriale",
+    "interno (etichetta, pickup)",
+    "cavità e saldature"
+   ],
+   "rischi": [
+    "etichette false nei violini",
+    "rifiniture rifatte"
+   ],
+   "vendi": "Reverb, Mercatino Musicale; Gardiner Houlgate (chitarre), Tarisio (archi)"
+  },
+  {
+   "id": "hifi-radio",
+   "nome": "Hi-fi e radio d'epoca",
+   "parole": [
+    "hi-fi",
+    "hifi",
+    "stereo vintage",
+    "giradischi",
+    "thorens",
+    "garrard",
+    "technics",
+    "amplificatore",
+    "valvole",
+    "marantz",
+    "mcintosh",
+    "jbl",
+    "tannoy",
+    "diffusori",
+    "casse acustiche",
+    "radio d'epoca",
+    "radio a valvole",
+    "brionvega",
+    "registratore a bobine",
+    "revox"
+   ],
+   "leggi": [
+    "canali-specializzati/orologi-tecnica-strumenti.md#Hi-fi"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "marca e modello (schede su HiFi Engine, Radiomuseum)",
+    "funzionante o da revisionare; componenti originali",
+    "prezzo: HiFi Shark e mercatini"
+   ],
+   "foto": [
+    "targhetta col modello",
+    "retro e interno"
+   ],
+   "rischi": [
+    "condensatori e trasformatori da sostituire"
+   ],
+   "vendi": "HiFiMercato, Mercatino Musicale, forum con mercatino"
+  },
+  {
+   "id": "retrocomputer",
+   "nome": "Computer d'epoca",
+   "parole": [
+    "commodore",
+    "amiga",
+    "c64",
+    "commodore 64",
+    "vic 20",
+    "zx spectrum",
+    "sinclair",
+    "msx",
+    "apple ii",
+    "macintosh vintage",
+    "olivetti",
+    "computer vintage",
+    "atari st"
+   ],
+   "leggi": [
+    "canali-specializzati/orologi-tecnica-strumenti.md#Computer"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "modello e revisione della scheda",
+    "scatola originale con polistirolo",
+    "espansioni e accessori nei lotti"
+   ],
+   "foto": [
+    "etichetta sotto",
+    "interno",
+    "scatola"
+   ],
+   "rischi": [
+    "condensatori e batterie che perdono"
+   ],
+   "vendi": "Retrocommodore, gruppi Facebook, eBay; Breker per pezzi storici"
+  },
+  {
+   "id": "strumenti-scientifici",
+   "nome": "Strumenti scientifici e nautici",
+   "parole": [
+    "sestante",
+    "astrolabio",
+    "globo",
+    "mappamondo antico",
+    "microscopio antico",
+    "telescopio antico",
+    "cannocchiale",
+    "barometro",
+    "bussola antica",
+    "cronometro da marina",
+    "strumento scientifico",
+    "ottante",
+    "teodolite"
+   ],
+   "leggi": [
+    "canali-specializzati/orologi-tecnica-strumenti.md#Strumenti scientifici"
+   ],
+   "manuali": [
+    "orologi-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "firma del costruttore sul lembo o sul tubo",
+    "custodia e accessori originali",
+    "parti sostituite"
+   ],
+   "foto": [
+    "firma in macro",
+    "custodia aperta"
+   ],
+   "rischi": [
+    "riproduzioni decorative in ottone"
+   ],
+   "vendi": "Cambi (Strumenti scientifici e arte marinara), Charles Miller (Londra), Breker, Dorotheum"
+  },
+  {
+   "id": "dipinti",
+   "nome": "Dipinti, disegni e stampe",
+   "parole": [
+    "quadro",
+    "quadri",
+    "dipinto",
+    "dipinti",
+    "olio su tela",
+    "olio su tavola",
+    "olio su cartone",
+    "acquerello",
+    "tempera",
+    "pastello",
+    "disegno",
+    "pittore",
+    "firmato",
+    "firma illeggibile",
+    "cornice antica",
+    "quadro antico",
+    "quadro della nonna",
+    "paesaggio",
+    "marina",
+    "ritratto",
+    "natura morta",
+    "macchiaioli",
+    "scuola napoletana",
+    "posillipo",
+    "ottocento",
+    "impressionista",
+    "incisione",
+    "acquaforte",
+    "litografia",
+    "oleografia",
+    "painting",
+    "tableau",
+    "gemalde",
+    "xix secolo",
+    "fine ottocento",
+    "quadro firmato"
+   ],
+   "leggi": [
+    "categorie/dipinti-stampe.md#Prima domanda",
+    "categorie/dipinti-stampe.md#Datare il supporto",
+    "categorie/dipinti-stampe.md#La firma",
+    "categorie/dipinti-stampe.md#Come arrivare",
+    "dove-rivendere.md#Dipinti"
+   ],
+   "manuali": [
+    "dipinti-"
+   ],
+   "dati": "artisti",
+   "verifiche": [
+    "dipinto o stampa? lente 10x: retino a puntini = stampa; oleografie molto diffuse",
+    "retro: tela, telaio con biette, chiodi, timbri del colorificio, etichette",
+    "firma sotto o sopra la craquelure (luce radente, UV)",
+    "autore: De Gubernatis (Ottocento), dati Met/MoMA/Tate per le date",
+    "prezzo: risultati d'asta per autore, tecnica, misura e soggetto"
+   ],
+   "foto": [
+    "retro completo",
+    "firma con luce radente",
+    "dettaglio della materia in macro",
+    "etichette e timbri"
+   ],
+   "rischi": [
+    "firme aggiunte",
+    "export: attestato di libera circolazione se più di 70 anni"
+   ],
+   "vendi": "case d'asta con dipartimento Ottocento (Pandolfini, Wannenes, Cambi, Il Ponte, Farsetti, Bertolami); Catawiki/eBay per scuole e minori"
+  },
+  {
+   "id": "sculture-bronzi",
+   "nome": "Bronzi, sculture e oggetti in metallo",
+   "parole": [
+    "bronzo",
+    "bronzi",
+    "statua",
+    "statuina",
+    "scultura",
+    "candeliere",
+    "candelieri",
+    "candelabro",
+    "candelabri",
+    "portacandele",
+    "bugia",
+    "ottone",
+    "rame",
+    "peltro",
+    "ferro battuto",
+    "ghisa",
+    "antimonio",
+    "zama",
+    "spelter",
+    "regule",
+    "barbedienne",
+    "susse",
+    "bergman",
+    "bronzo viennese",
+    "chiurazzi",
+    "art nouveau",
+    "liberty",
+    "art deco",
+    "napoleone iii",
+    "soprammobile",
+    "fermaporta",
+    "calamaio",
+    "bougeoir",
+    "kerzenleuchter",
+    "candlestick",
+    "pewter",
+    "brass"
+   ],
+   "leggi": [
+    "categorie/metalli-bronzi-argenti.md#1. Che metallo",
+    "categorie/metalli-bronzi-argenti.md#2. Costruzione",
+    "categorie/metalli-bronzi-argenti.md#Bronzi",
+    "categorie/metalli-bronzi-argenti.md#4. Esempio",
+    "dove-rivendere.md#Bronzi"
+   ],
+   "manuali": [
+    "metalli-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "metallo: bronzo, ottone, zama/antimonio (vale poco) o resina; grattare sotto la base",
+    "costruzione: perni e dadi a mano vs viti a croce",
+    "firme di fonderia/scultore; date su produttori-met",
+    "coppia o pezzo singolo",
+    "patina originale: non lucidare"
+   ],
+   "foto": [
+    "sotto la base",
+    "interno della base e assemblaggio",
+    "firme e marchi in macro",
+    "zona dove la patina è consumata"
+   ],
+   "rischi": [
+    "fusioni moderne con firme famose",
+    "avorio nelle crisoelefantine (CITES)"
+   ],
+   "vendi": "Catawiki, eBay internazionale, aste francesi e tedesche per i bronzi firmati"
+  },
+  {
+   "id": "argenti",
+   "nome": "Argenti e argenteria",
+   "parole": [
+    "argento",
+    "argenteria",
+    "argento 800",
+    "argento 925",
+    "sterling",
+    "punzone",
+    "punzoni",
+    "posate argento",
+    "vassoio argento",
+    "servizio da te argento",
+    "silver",
+    "argent",
+    "silber",
+    "christofle",
+    "cristofle",
+    "christofl",
+    "sheffield",
+    "argentato",
+    "silver plate",
+    "epns",
+    "alpacca",
+    "wmf"
+   ],
+   "leggi": [
+    "categorie/metalli-bronzi-argenti.md#1. Che metallo",
+    "categorie/metalli-bronzi-argenti.md#Argenti",
+    "categorie/metalli-bronzi-argenti.md#Valore minimo",
+    "dove-rivendere.md#Bronzi"
+   ],
+   "manuali": [
+    "argento-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "argento massiccio o argentato (EPNS, alpacca, '90', '100', Sheffield plate)",
+    "punzoni: titolo, fabbricante, città/anno (Jackson per UK, Rosenberg per Europa)",
+    "peso × titolo × quotazione = prezzo minimo; attenzione alle basi zavorrate",
+    "argentieri di marca (Buccellati, Jensen, Puiforcat)"
+   ],
+   "foto": [
+    "tutti i punzoni in macro",
+    "peso sulla bilancia",
+    "zone consumate"
+   ],
+   "rischi": [
+    "punzoni falsi",
+    "candelieri zavorrati"
+   ],
+   "vendi": "aste di argenti, Catawiki; compro oro/argento solo come prezzo minimo"
+  },
+  {
+   "id": "ceramiche",
+   "nome": "Porcellane e maioliche",
+   "parole": [
+    "porcellana",
+    "porcellane",
+    "maiolica",
+    "maioliche",
+    "ceramica",
+    "ceramiche",
+    "terraglia",
+    "capodimonte",
+    "capodimonti",
+    "ginori",
+    "ginory",
+    "richard ginori",
+    "doccia",
+    "meissen",
+    "sevres",
+    "limoges",
+    "rosenthal",
+    "herend",
+    "wedgwood",
+    "royal copenhagen",
+    "deruta",
+    "faenza",
+    "castelli",
+    "savona",
+    "albisola",
+    "lenci",
+    "bitossi",
+    "fornasetti",
+    "piatto antico",
+    "servizio di piatti",
+    "vaso antico",
+    "statuina porcellana",
+    "porcelain",
+    "faience",
+    "porzellan",
+    "n coronata",
+    "giglio capodimonte"
+   ],
+   "leggi": [
+    "categorie/ceramiche-vetri.md#Porcellana, maiolica",
+    "categorie/ceramiche-vetri.md#Marchi",
+    "categorie/ceramiche-vetri.md#Condizione",
+    "dove-rivendere.md#Ceramiche"
+   ],
+   "manuali": [
+    "ceramica-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "porcellana, maiolica o terraglia (traslucenza, impasto nelle sbeccature)",
+    "marchio confrontato con l'epoca e la qualità (Chaffers, De Mauri); N coronata quasi sempre Novecento",
+    "restauri: UV, crepe, colle",
+    "manifattura su produttori-met per date"
+   ],
+   "foto": [
+    "marchio sotto in macro",
+    "sbeccature o bordi",
+    "controluce"
+   ],
+   "rischi": [
+    "marchi falsi (Meissen, Sèvres, Capodimonte)"
+   ],
+   "vendi": "aste di arti decorative e design, Catawiki, eBay internazionale; generico su Subito"
+  },
+  {
+   "id": "vetri",
+   "nome": "Vetri di Murano e vetro d'arte",
+   "parole": [
+    "murano",
+    "vetro di murano",
+    "venini",
+    "vennini",
+    "barovier",
+    "seguso",
+    "segusso",
+    "salviati",
+    "avem",
+    "cenedese",
+    "vistosi",
+    "fazzoletto",
+    "scarpa vetro",
+    "bianconi",
+    "galle",
+    "daum",
+    "lalique",
+    "loetz",
+    "moser",
+    "vetro soffiato",
+    "vetro cammeo",
+    "lampadario murano",
+    "vaso vetro",
+    "glass",
+    "verre",
+    "glas"
+   ],
+   "leggi": [
+    "categorie/ceramiche-vetri.md#Vetri",
+    "dove-rivendere.md#Ceramiche"
+   ],
+   "manuali": [
+    "vetro-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "firma acidata o incisa (molti originali non firmati)",
+    "tecnica, spessori, segno del pontello lavorato",
+    "designer (Scarpa, Bianconi, Martinuzzi...)",
+    "falsi Gallé e Fazzoletto molto diffusi"
+   ],
+   "foto": [
+    "fondo con firma in macro",
+    "controluce",
+    "difetti e sbeccature"
+   ],
+   "rischi": [
+    "vetro cinese venduto come Murano",
+    "Gallé falsi"
+   ],
+   "vendi": "aste di design (Wannenes, Cambi, Il Ponte, Pandolfini), Catawiki, eBay internazionale"
+  },
+  {
+   "id": "design",
+   "nome": "Design e modernariato del Novecento",
+   "parole": [
+    "design",
+    "modernariato",
+    "vintage anni 50",
+    "vintage anni 60",
+    "vintage anni 70",
+    "anni 60",
+    "anni 70",
+    "space age",
+    "lampada vintage",
+    "lampada anni 70",
+    "artemide",
+    "flos",
+    "arteluce",
+    "fontana arte",
+    "fontanaarte",
+    "stilnovo",
+    "oluce",
+    "kartell",
+    "cassina",
+    "arflex",
+    "tecno",
+    "poltronova",
+    "gufram",
+    "zanotta",
+    "gio ponti",
+    "sottsass",
+    "castiglioni",
+    "joe colombo",
+    "magistretti",
+    "gae aulenti",
+    "zanuso",
+    "mollino",
+    "sarfatti",
+    "arco flos",
+    "eames",
+    "olivetti valentine",
+    "brionvega",
+    "mid century"
+   ],
+   "leggi": [
+    "categorie/design-modernariato.md#Originale o riedizione",
+    "categorie/design-modernariato.md#Nomi",
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Design",
+    "dove-rivendere.md#Design"
+   ],
+   "manuali": [],
+   "dati": "artisti",
+   "verifiche": [
+    "originale d'epoca o riedizione (etichette, timbri, viti, cavi, plastiche)",
+    "designer e produttore (dati MoMA)",
+    "condizione e parti sostituite"
+   ],
+   "foto": [
+    "etichette e timbri",
+    "dettagli costruttivi",
+    "cavo e portalampada"
+   ],
+   "rischi": [
+    "copie economiche di classici (Arco, Eames)"
+   ],
+   "vendi": "aste di design, Catawiki, Selency (privati), eBay internazionale"
+  },
+  {
+   "id": "mobili",
+   "nome": "Mobili e arredi antichi",
+   "parole": [
+    "mobile antico",
+    "mobili antichi",
+    "comò",
+    "cassettone",
+    "credenza",
+    "madia",
+    "armadio antico",
+    "scrittoio",
+    "secretaire",
+    "trumeau",
+    "consolle",
+    "tavolo antico",
+    "sedie antiche",
+    "poltrona antica",
+    "specchiera",
+    "cornice dorata",
+    "intarsio",
+    "lastronato",
+    "luigi xvi",
+    "luigi filippo",
+    "impero",
+    "biedermeier",
+    "barocco",
+    "noce massello",
+    "furniture",
+    "meuble",
+    "mobel"
+   ],
+   "leggi": [
+    "categorie/altre-categorie.md#Arredi antichi",
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Mobili"
+   ],
+   "manuali": [
+    "mobili-"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "cassetti (code di rondine a mano), retro e fondo, segni di sega",
+    "ferramenta e chiodi originali, legni secondari coerenti",
+    "piani, piedi o impiallacciature sostituiti"
+   ],
+   "foto": [
+    "cassetto estratto e incastri",
+    "retro",
+    "sotto il piano"
+   ],
+   "rischi": [
+    "mobili 'rifatti' con legno vecchio",
+    "intarsi in avorio o tartaruga (CITES)"
+   ],
+   "vendi": "aste (Il Ponte, Cambi, Pandolfini, Wannenes), antiquari FIMA; mercato debole per il mobile comune"
+  },
+  {
+   "id": "arte-orientale",
+   "nome": "Arte orientale (Cina, Giappone)",
+   "parole": [
+    "cinese",
+    "cina",
+    "giapponese",
+    "giappone",
+    "orientale",
+    "porcellana cinese",
+    "vaso cinese",
+    "blu e bianco",
+    "famiglia rosa",
+    "famille rose",
+    "qing",
+    "ming",
+    "kangxi",
+    "qianlong",
+    "imari",
+    "satsuma",
+    "kutani",
+    "giada",
+    "bronzo cinese",
+    "buddha",
+    "netsuke",
+    "okimono",
+    "lacca",
+    "cloisonne",
+    "tabacchiera cinese",
+    "chinese",
+    "japanese",
+    "chinois",
+    "japonais"
+   ],
+   "leggi": [
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Arte orientale",
+    "categorie/ceramiche-vetri.md#Marchi"
+   ],
+   "manuali": [
+    "arte-orientale-",
+    "ceramica-chaffers"
+   ],
+   "dati": "produttori-met",
+   "verifiche": [
+    "marchio di regno dipinto a mano o stampato (rosso stampato = circa 1900 o dopo); Hobson vol. 2",
+    "qualità di decoro e smalto, piede e base",
+    "provenienza da vecchia collezione europea",
+    "netsuke e okimono: avorio (CITES)"
+   ],
+   "foto": [
+    "base e marchio in macro",
+    "piede",
+    "decoro in dettaglio"
+   ],
+   "rischi": [
+    "copie moderne",
+    "avorio, corno, tartaruga (CITES)"
+   ],
+   "vendi": "aste europee di arte asiatica (Pandolfini, Cambi, Finarte, Bertolami, Wannenes) che raggiungono i compratori cinesi"
+  },
+  {
+   "id": "arte-tribale",
+   "nome": "Arte africana, oceanica e precolombiana",
+   "parole": [
+    "africana",
+    "arte africana",
+    "maschera africana",
+    "statua africana",
+    "tribale",
+    "etnografica",
+    "oceania",
+    "precolombiano",
+    "precolombiana",
+    "maya",
+    "azteco",
+    "inca",
+    "huaco"
+   ],
+   "leggi": [
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Arte africana",
+    "legale-fiscale.md#Categorie con regole speciali"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "patina d'uso autentica vs prodotto per turisti",
+    "etichette e numeri di vecchie collezioni, foto storiche",
+    "precolombiano: prova di uscita lecita (prima del 1970)"
+   ],
+   "foto": [
+    "retro e base",
+    "etichette",
+    "segni d'uso"
+   ],
+   "rischi": [
+    "sequestri per il precolombiano",
+    "produzione 'airport art'"
+   ],
+   "vendi": "Cambi Arti Primarie, Bertolami, Christie's Parigi"
+  },
+  {
+   "id": "tappeti",
+   "nome": "Tappeti antichi",
+   "parole": [
+    "tappeto",
+    "tappeti",
+    "kilim",
+    "persiano",
+    "tappeto persiano",
+    "caucasico",
+    "anatolico",
+    "tabriz",
+    "isfahan",
+    "kashan",
+    "heriz",
+    "bukhara",
+    "rug",
+    "carpet",
+    "tapis",
+    "teppich"
+   ],
+   "leggi": [
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Tappeti"
+   ],
+   "manuali": [
+    "tappeti-"
+   ],
+   "dati": "",
+   "verifiche": [
+    "annodato a mano (nodi visibili sul retro) o meccanico",
+    "colori naturali con abrash",
+    "provenienza ed età; usura e restauri"
+   ],
+   "foto": [
+    "retro",
+    "frange e cimose",
+    "dettaglio del vello"
+   ],
+   "rischi": [
+    "tappeti meccanici o lavati chimicamente"
+   ],
+   "vendi": "Cambi, Il Ponte, Arcadia; Christie's per i pezzi top"
+  },
+  {
+   "id": "icone",
+   "nome": "Icone russe, greche e balcaniche",
+   "parole": [
+    "icona",
+    "icone",
+    "icona russa",
+    "icona greca",
+    "riza",
+    "oklad",
+    "madonna kazan",
+    "icon",
+    "ikone"
+   ],
+   "leggi": [
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Icone"
+   ],
+   "manuali": [
+    "argento-"
+   ],
+   "dati": "",
+   "verifiche": [
+    "tavola antica con kovcheg e sponki",
+    "riza in argento con punzoni",
+    "copie recenti invecchiate molto diffuse"
+   ],
+   "foto": [
+    "retro della tavola",
+    "punzoni della riza",
+    "bordi"
+   ],
+   "rischi": [
+    "icone trafugate (Cipro, Grecia)",
+    "export verso la Russia vietato"
+   ],
+   "vendi": "Colasanti, Arcadia, Wannenes, Hargesheimer (Düsseldorf)"
+  },
+  {
+   "id": "moda-lusso",
+   "nome": "Moda vintage e borse di lusso",
+   "parole": [
+    "borsa",
+    "borse",
+    "hermes",
+    "kelly",
+    "birkin",
+    "chanel",
+    "louis vuitton",
+    "vuitton",
+    "gucci",
+    "prada",
+    "dior",
+    "fendi",
+    "bottega veneta",
+    "pochette",
+    "foulard",
+    "carre hermes",
+    "pelliccia",
+    "vintage moda",
+    "abito vintage",
+    "valentino",
+    "versace"
+   ],
+   "leggi": [
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Moda"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "codici data, stampi a caldo, cuciture e ferramenta coerenti",
+    "autenticazione (Entrupy) per pezzi di valore",
+    "pelli esotiche: documenti CITES"
+   ],
+   "foto": [
+    "codice data e stampo interno",
+    "ferramenta",
+    "cuciture e angoli"
+   ],
+   "rischi": [
+    "falsi di alta qualità"
+   ],
+   "vendi": "Vestiaire Collective (17%+3%), aste Finarte, Bolaffi, Il Ponte, Pandolfini"
+  },
+  {
+   "id": "sneakers",
+   "nome": "Sneakers e streetwear",
+   "parole": [
+    "sneakers",
+    "sneaker",
+    "jordan",
+    "air jordan",
+    "nike dunk",
+    "yeezy",
+    "off-white",
+    "supreme",
+    "travis scott",
+    "new balance",
+    "scarpe da collezione"
+   ],
+   "leggi": [
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Sneakers"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "scatola ed etichetta con SKU coerente",
+    "taglia e condizione (DS = nuove)",
+    "autenticazione"
+   ],
+   "foto": [
+    "etichetta interna",
+    "scatola",
+    "suola"
+   ],
+   "rischi": [
+    "falsi molto diffusi"
+   ],
+   "vendi": "StockX e Laced (solo nuove), KLEKT (anche usate), negozi resell di Milano"
+  },
+  {
+   "id": "vini",
+   "nome": "Vini e distillati da collezione",
+   "parole": [
+    "vino",
+    "vini",
+    "bottiglia",
+    "bottiglie",
+    "barolo",
+    "brunello",
+    "sassicaia",
+    "ornellaia",
+    "tignanello",
+    "amarone",
+    "bordeaux",
+    "champagne",
+    "whisky",
+    "whiskey",
+    "macallan",
+    "cognac",
+    "armagnac",
+    "rum",
+    "grappa",
+    "liquore vecchio",
+    "distillato",
+    "cantina vini",
+    "cantina di vini",
+    "vini da collezione",
+    "vini pregiati"
+   ],
+   "leggi": [
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Vini",
+    "legale-fiscale.md#Categorie con regole speciali"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "livello nel collo, capsula ed etichetta integre",
+    "conservazione (cantina, temperatura)",
+    "annata e imbottigliamento (Whiskybase per i distillati)"
+   ],
+   "foto": [
+    "livello",
+    "capsula",
+    "etichetta e retro"
+   ],
+   "rischi": [
+    "vendita abituale di alcolici richiede licenza",
+    "falsi di grandi etichette"
+   ],
+   "vendi": "Aste Bolaffi, Finarte, Cambi, Pandolfini; iDealwine, Whisky Auctioneer"
+  },
+  {
+   "id": "auto-moto",
+   "nome": "Auto e moto d'epoca, ricambi e automobilia",
+   "parole": [
+    "auto d'epoca",
+    "moto d'epoca",
+    "vespa",
+    "lambretta",
+    "fiat 500",
+    "alfa romeo",
+    "lancia",
+    "ferrari",
+    "ducati",
+    "moto guzzi",
+    "targa oro",
+    "ricambi d'epoca",
+    "automobilia",
+    "insegna smaltata",
+    "insegna",
+    "targa smaltata",
+    "pompa di benzina",
+    "oliatore",
+    "certificato asi",
+    "ricambio nos",
+    "ricambi nos"
+   ],
+   "leggi": [
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Auto"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "matching numbers (telaio e motore)",
+    "documenti e libretto d'epoca, certificazioni ASI",
+    "ricambi NOS in scatola",
+    "insegne: smalto originale vs riproduzione"
+   ],
+   "foto": [
+    "numeri di telaio e motore",
+    "documenti",
+    "dettagli di carrozzeria"
+   ],
+   "rischi": [
+    "insegne smaltate riprodotte"
+   ],
+   "vendi": "Aste Bolaffi, Finarte Classic Cars; Bring a Trailer, Collecting Cars"
+  },
+  {
+   "id": "minerali-fossili",
+   "nome": "Minerali, fossili e meteoriti",
+   "parole": [
+    "minerale",
+    "minerali",
+    "cristallo",
+    "cristalli",
+    "quarzo",
+    "ametista",
+    "fossile",
+    "fossili",
+    "ammonite",
+    "trilobite",
+    "dente di squalo",
+    "meteorite",
+    "meteoriti",
+    "geode"
+   ],
+   "leggi": [
+    "canali-specializzati/arte-arredi-lusso-vini-auto.md#Minerali",
+    "legale-fiscale.md#Categorie con regole speciali"
+   ],
+   "manuali": [],
+   "dati": "",
+   "verifiche": [
+    "località (etichette di vecchie collezioni); mindat.org",
+    "fossili italiani di interesse: dello Stato, non vendibili",
+    "meteoriti: classificazione ufficiale nel Meteoritical Bulletin"
+   ],
+   "foto": [
+    "etichette",
+    "dettagli e dimensioni"
+   ],
+   "rischi": [
+    "fossili italiani",
+    "fossili ricostruiti o falsi"
+   ],
+   "vendi": "Bonhams/Christie's/Sotheby's Natural History per i top; mostre scambio"
+  }
+ ]
+}

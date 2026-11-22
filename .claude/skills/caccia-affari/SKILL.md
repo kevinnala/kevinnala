@@ -13,6 +13,37 @@ dimostrarlo con prove, non con l'entusiasmo.
 Consegna sempre una **scheda affare** (formato al passo 7) e mai una promessa:
 ogni attribuzione ha un grado di fiducia e ogni prezzo viene da vendite reali.
 
+## Passo 0, sempre: instrada sulla categoria (prima di leggere qualunque file)
+
+```bash
+python3 .claude/skills/caccia-affari/scripts/categoria.py "<titolo e descrizione dell'annuncio>"
+```
+
+Lo script riconosce la categoria (42, con sinonimi in 4 lingue ed errori di battitura) e
+stampa la scheda essenziale: verifiche chiave, foto da chiedere, rischi, dove vendere, e
+**le sole righe dei file da leggere** (`file:inizio-fine`), più i manuali e i dati da
+interrogare. `--estratto` stampa direttamente il testo di quelle sezioni.
+
+Regole di economia (meno token, meno errori):
+
+- **Leggi solo le righe indicate** dallo script (Read con offset e limit). Non aprire le
+  altre guide, la mappa qui sotto serve solo se lo script non basta.
+- **Una categoria per oggetto.** Se lo script ne dà due, usa la prima e prendi dalla
+  seconda solo ciò che manca. Non ricominciare il ragionamento da capo.
+- **Lotti misti**: elenca gli oggetti visibili e rilancia lo script su ognuno di quelli
+  promettenti. Ignora il resto.
+- **Nessuna categoria riconosciuta**: non indovinare. Stabilisci materiale e funzione
+  dell'oggetto e rilancia lo script con quelle parole; se ancora niente, usa
+  `references/nuova-categoria.md`.
+- **Triage prima della perizia**: per ogni annuncio bastano 2–3 righe (cos'è, valore
+  plausibile, sì/no). Approfondisci solo se il valore plausibile è almeno il doppio del
+  prezzo chiesto.
+- **Ricerche con limite**: al massimo 3 comparabili venduti per oggetto e una ricerca nei
+  manuali per nome; se mancano dati, scrivi "da verificare" e passa oltre invece di
+  continuare a cercare.
+- **Le verifiche chiave dello script sono la checklist**: seguile in ordine e fermati alla
+  prima che fa cadere l'affare (es. "è una stampa", "è zama", "è una riedizione").
+
 ## Le categorie sono esempi, non limiti
 
 Questa skill vale per **qualunque** oggetto con un mercato di collezionisti o di
@@ -29,7 +60,7 @@ cataloghi di prezzi, servizi di perizia). Sono in `references/canali-specializza
 
 ## Mappa dei riferimenti
 
-Leggi solo ciò che serve al caso:
+Da usare solo se lo script del passo 0 non basta:
 
 | Serve | File |
 |---|---|

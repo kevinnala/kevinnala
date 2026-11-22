@@ -11,7 +11,9 @@ Si trova in `.claude/skills/caccia-affari/`:
 - `SKILL.md`: il flusso di lavoro (cerca → identifica → stima → scegli il canale → scheda affare)
 - `references/`: metodo di perizia, dove cercare, dove rivendere, leggi e fisco, e guide per
   categoria (carte collezionabili, dipinti, metalli, ceramiche e vetri, design, altre)
+- `scripts/categoria.py`: instradatore che riconosce la categoria di un annuncio e indica solo le righe da leggere
 - `scripts/margine.py`: calcolatore di ricavo netto e prezzo massimo da offrire
+- `manuali/testi/`: 20 manuali di dominio pubblico; `dati/`: indici open data di produttori e artisti
 - `manuali/`: cartella per i tuoi manuali e appunti personali
 
 ### Come usarla
