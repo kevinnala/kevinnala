@@ -238,7 +238,8 @@ def lezioni(testo=True):
         out.append("Bonus di punteggio nello scanner: " + ", ".join(f"{k} {v:+d}" for k, v in bonus.items()))
     if note:
         out.append("Note libere dell'utente (leggile prima di periziare):")
-        out += [f"- [{e['data']}] {e.get('testo', '')}" for e in note[-20:]]
+        out += [f"- [{e['data']}] {e.get('testo', '')}" + (f"  (in risposta a: «{e['risposta_a'][:120]}»)" if e.get("risposta_a") else "")
+                for e in note[-20:]]
     return "\n".join(out)
 
 

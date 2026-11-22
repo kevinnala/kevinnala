@@ -123,6 +123,13 @@ def main(argv):
         if str(msg.get("chat", {}).get("id")) != cid or not msg.get("text"):
             continue  # solo i messaggi dell'utente configurato
         esito, risposta = interpreta(msg["text"])
+        citato = (msg.get("reply_to_message") or {}).get("text") or ""
+        if esito and citato:
+            # l'utente ha risposto a un messaggio: tieni il riferimento (es. la scheda #N di cui parla)
+            esito["risposta_a"] = citato[:400]
+            nums = re.findall(r"#(\d+)", citato)
+            if len(set(nums)) == 1 and "n" not in esito:
+                esito["n_citato"] = int(nums[0])
         letti += 1
         print(f"«{msg['text']}» → {esito} ")
         if prova:

@@ -246,7 +246,9 @@ def componi(perizie, max_car=3900):
               "Per dirmi com'è andata: /preso #N prezzo · /venduto #N prezzo canale · /scartato #N motivo · /aiuto")
     pezzi = [intest] + [scheda(p) for p in buone]
     if lascia:
-        pezzi.append("<b>LASCIA</b> (prezzo già giusto o niente mercato)\n" + "\n".join(riga_lascia(p) for p in lascia))
+        righe = [riga_lascia(p) for p in lascia]
+        righe[0] = "<b>LASCIA</b> (prezzo già giusto o niente mercato)\n" + righe[0]
+        pezzi += righe  # una riga per pezzo: il messaggio si spezza tra le righe, mai dentro un link
     messaggi, cur = [], ""
     for pz in pezzi:
         for blocco in ([pz] if len(pz) <= max_car else [pz[i:i + max_car] for i in range(0, len(pz), max_car)]):
